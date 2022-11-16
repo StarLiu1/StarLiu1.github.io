@@ -1,44 +1,40 @@
-# vCard - Personal portfolio
+<h2 align="center">
+  Portfolio Website live demo
+  <a href="https://sunilyadavportfolio.netlify.app/" target="_blank">SunilyadavPortfolio</a>
+</h2>
+<div align="center">
+  <img width="960" alt="image" src="https://user-images.githubusercontent.com/20383021/148535829-e697023d-cf9b-4873-b04c-ab33c465d085.png">
+</div>
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+## Built With
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+My personal portfolio   <a href="https://sunilyadavportfolio.netlify.app/" target="_blank">https://sunilyadavportfolio.netlify.app/</a> and my personal blog  <a href="http://www.logicstime.com/" target="_blank">http://www.logicstime.com/</a> <br/>
 
-## Demo
+This project was built using these technologies.
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+- React.js
+- CSS3
+- VsCode
 
-## Prerequisites
+## Features
 
-Before you begin, ensure you have met the following requirements:
+**📖 Multi-Page Layout**
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+**🎨 Styled with React-Bootstrap and Css with easy to customize colors**
 
-## Installing vCard
+**📱 Fully Responsive**
 
-To install **vCard**, follow these steps:
+## Getting Started
 
-Linux and macOS:
+Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
 
-```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+## 🛠 Installation and Setup Instructions
 
-Windows:
+1. Installation: `npm install`
 
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+2. In the project directory, you can run: `npm start`
 
-## Contact
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The page will reload if you make edits.
 
-If you want to contact me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
-
-## License
-
-This project is **free to use** and does not contains any license.
