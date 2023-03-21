@@ -19,15 +19,12 @@ function Home() {
               </h1>
 
               <h1 className="heading-name">
-                I'M
-                <strong className="main-name"> Sunil Yadav</strong>
+                I am 
+                <strong className="main-name"> Star Liu</strong>
               </h1>
 
               <p className="heading-description blockquote">
-                I am passionate about using Javascript and Animation Libraries
-                to create awesome user experiences. With over five years of
-                experience developing web applications using the latest
-                front-end and back-end technologies.
+                Website in the making
               </p>
 
               <div className="heading-type">
