@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/sunil.jpg";
+import myImg from "../../Assets/StarSDLiu.jpeg";
 import SocialMedia from "../SocialMedia";
 import TypeWriter from "./TypeWriter";
 
@@ -24,7 +24,7 @@ function Home() {
               </h1>
 
               <p className="heading-description blockquote">
-                Website in the making
+                Stardust on a bluedot
               </p>
 
               <div className="heading-type">
@@ -32,7 +32,7 @@ function Home() {
               </div>
             </Col>
 
-            <Col md={5}>
+            <Col md={6} style={{height:"500px", width:"600px"}}>
               <img src={myImg} className="profile-pic" alt="avatar" />
             </Col>
           </Row>
@@ -45,8 +45,7 @@ function Home() {
               <h1>Get in Touch</h1>
               <p>
                 {" "}
-                Whether you want to get in touch, or talk about a project
-                collaboration.
+                Whether you want to get in touch, or talk about a project.
                 <br />
                 <strong>Feel free to connect with me</strong>
               </p>

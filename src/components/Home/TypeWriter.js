@@ -6,14 +6,13 @@ function TypeWriter() {
     <Typewriter
       options={{
         strings: [
-          "Front End Developer",
-          "Back End Developer",
-          "Software Engineer",
-          "Open Source Contributor",
+          "Parts from China. Assembled in the US.",
+          "Passed by ATX, ATL, BAL",
+          "Final destination...to be written",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 50,
+        deleteSpeed: 30,
       }}
     />
   );
