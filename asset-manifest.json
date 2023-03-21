@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.125cf4ec.css",
-    "main.js": "/static/js/main.cba001e2.js",
+    "main.js": "/static/js/main.6167ce16.js",
     "static/media/travelwell.png": "/static/media/travelwell.772033dc973fe6cbd837.png",
     "static/media/cosmos.jpg": "/static/media/cosmos.19ad09343fc726dc22c6.jpg",
     "static/media/goodFoodDiscounts.png": "/static/media/goodFoodDiscounts.9b9dd889365791020505.png",
@@ -14,10 +14,10 @@
     "static/media/techspec.png": "/static/media/techspec.3b34aad004bc1d61d5e7.png",
     "index.html": "/index.html",
     "main.125cf4ec.css.map": "/static/css/main.125cf4ec.css.map",
-    "main.cba001e2.js.map": "/static/js/main.cba001e2.js.map"
+    "main.6167ce16.js.map": "/static/js/main.6167ce16.js.map"
   },
   "entrypoints": [
     "static/css/main.125cf4ec.css",
-    "static/js/main.cba001e2.js"
+    "static/js/main.6167ce16.js"
   ]
 }
