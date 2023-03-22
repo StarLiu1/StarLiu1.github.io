@@ -11,13 +11,13 @@ html {
 /*  Preloader */
 /* --------- */
 #preloader {
+  flex: 1;
+  display: flex;
   position: fixed;
-  top: 30%;
-  left: 40%;
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: #ffffff;
+  background-color: #495e8d;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -60,13 +60,13 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(178, 121, 216, 0.959);
+  background: #495e8d;
   border-radius: 12px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(222, 130, 235, 0.911);
+  background: #495e8d;
   border-radius: 12px;
 }
 
@@ -74,7 +74,7 @@ html {
 /* Navbar Section  */
 /* --------- */
 .sticky {
-  background-color: #212038d8 !important;
+  background-color: #293f6d !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
   backdrop-filter: blur(15px) !important;
@@ -85,7 +85,7 @@ html {
   transition: all 0.3s ease-out 0s !important;
   padding: 0.3rem 2rem !important;
   font-size: 1.2rem !important;
-  background-color: #343e47;
+  background-color: #495e8d;
 }
 
 .navbar-toggler {
@@ -144,7 +144,7 @@ html {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    background-color: #343e47 !important;
+    background-color: #495e8d !important;
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
@@ -364,10 +364,10 @@ html {
   text-align: center !important;
   font-size: 1.2em !important;
   line-height: 2em !important;
-  background: #343e47 !important;
+  background: #495e8d !important;
   border-radius: 50% !important;
   transition: 0.5s !important;
-  border: 1px solid #343e47;
+  border: 1px solid #495e8d;
 }
 
 .home-social-icons::before {
@@ -413,7 +413,7 @@ html {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: #343e47;
+  background-color: #495e8d;
   bottom: 0 !important;
 }
 .footer-copywright {
@@ -470,7 +470,7 @@ html {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px #343e47 !important;
+  box-shadow: 0 4px 5px 3px #495e8d !important;
   color: #414141 !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
@@ -480,7 +480,7 @@ html {
 .project-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px #343e47 !important;
+  box-shadow: 0 4px 4px 5px #495e8d !important;
 }
 
 .blog-card {
@@ -769,13 +769,13 @@ html {
 }
 .skill-wrapper {
   border-right: 1px solid #414141;
-  box-shadow: 0 4px 5px 3px rgba(59, 56, 59, 0.459) !important;
+  box-shadow: 0 4px 5px 3px rgba(57, 59, 56, 0.459) !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
   transition: all 0.5s ease 0s !important;
 }
 .download-button {
-  background-color: #343e47 !important;
+  background-color: #495e8d !important;
 }
 
 .download-button:hover {

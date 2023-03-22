@@ -6,9 +6,9 @@ function TypeWriter() {
     <Typewriter
       options={{
         strings: [
-          "Parts from China. Assembled in the US.",
-          "Passed by ATX, ATL, BAL",
-          "Final destination...to be written",
+          "Parts from China. <br/> Made in the US.",
+          "All around the world... <br/> SH, ATX, ATL, BAL",
+          "Final destination... <br/> to be written",
         ],
         autoStart: true,
         loop: true,

@@ -8,7 +8,7 @@ function Home() {
   return (
     <section>
       <Container fluid className="home-section" id="home">
-        <Container className="home-content">
+        <Container className="home-content" style={{height:"500px"}}>
           <Row>
             <Col md={6} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
@@ -38,7 +38,7 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <Container fluid className="home-about-section" id="about">
+      <Container fluid className="home-about-section" id="about" >
         <Container>
           <Row>
             <Col md={12} className="home-about-social">
