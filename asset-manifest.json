@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.125cf4ec.css",
-    "main.js": "/static/js/main.6167ce16.js",
-    "static/media/travelwell.png": "/static/media/travelwell.772033dc973fe6cbd837.png",
-    "static/media/cosmos.jpg": "/static/media/cosmos.19ad09343fc726dc22c6.jpg",
-    "static/media/goodFoodDiscounts.png": "/static/media/goodFoodDiscounts.9b9dd889365791020505.png",
-    "static/media/developer.jpg": "/static/media/developer.23e159bedb27f3e8dcb6.jpg",
-    "static/media/coast.jpg": "/static/media/coast.54b1b992952a844614b7.jpg",
-    "static/media/Sunil_Resume.pdf": "/static/media/Sunil_Resume.168faf283203894af06d.pdf",
-    "static/media/dropship.jpg": "/static/media/dropship.b52fa0a127e9f395d54c.jpg",
-    "static/media/sunil.jpg": "/static/media/sunil.b0a14b3d0d1e033de272.jpg",
-    "static/media/hsp.png": "/static/media/hsp.40c6e624961103841384.png",
-    "static/media/techspec.png": "/static/media/techspec.3b34aad004bc1d61d5e7.png",
+    "main.css": "/static/css/main.86879709.css",
+    "main.js": "/static/js/main.e2bcca28.js",
+    "static/media/GradPhoto.jpg": "/static/media/GradPhoto.8b6baadf3b9cab73206a.jpg",
+    "static/media/PPD_Disparities.jpeg": "/static/media/PPD_Disparities.44a3bf72fcf089afe0ba.jpeg",
+    "static/media/EMORY_CovidDashboard.png": "/static/media/EMORY_CovidDashboard.f5fa5111042e6498758f.png",
+    "static/media/AFRD_FirePrediction.png": "/static/media/AFRD_FirePrediction.c31c2317f42df7c11238.png",
+    "static/media/T2D_DataQuality.png": "/static/media/T2D_DataQuality.05114fdc535c40b57408.png",
+    "static/media/OHDSI_CommunityDashboard.png": "/static/media/OHDSI_CommunityDashboard.d508e0b6fa1639b017f7.png",
+    "static/media/StarSDLiu3.jpg": "/static/media/StarSDLiu3.2e751ac90e054f668380.jpg",
+    "static/media/APAR_ApplicabilityArea.png": "/static/media/APAR_ApplicabilityArea.2f47bb95046f48fa7015.png",
+    "static/media/Liu, Star_CV.pdf": "/static/media/Liu, Star_CV.1aca91c6a15642845b1e.pdf",
+    "static/media/INDEPENDENT_MixedMethod.jpg": "/static/media/INDEPENDENT_MixedMethod.b054bbc40ff1de332d81.jpg",
     "index.html": "/index.html",
-    "main.125cf4ec.css.map": "/static/css/main.125cf4ec.css.map",
-    "main.6167ce16.js.map": "/static/js/main.6167ce16.js.map"
+    "main.86879709.css.map": "/static/css/main.86879709.css.map",
+    "main.e2bcca28.js.map": "/static/js/main.e2bcca28.js.map"
   },
   "entrypoints": [
-    "static/css/main.125cf4ec.css",
-    "static/js/main.6167ce16.js"
+    "static/css/main.86879709.css",
+    "static/js/main.e2bcca28.js"
   ]
 }
