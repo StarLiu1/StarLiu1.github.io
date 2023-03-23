@@ -41,7 +41,7 @@ function SocialMedia() {
       </li>
       <li className="social-icons">
         <a
-          href="mailto:starliu.sstx@gmail.com"
+          href="mailto:sliu197@jhmi.edu"
           target="_blank"
           rel="noreferrer"
           className="icon-colour home-social-icons"

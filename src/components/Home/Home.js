@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/StarSDLiu.jpeg";
+import myImg from "../../Assets/StarSDLiu3.jpg";
 import SocialMedia from "../SocialMedia";
 import TypeWriter from "./TypeWriter";
 

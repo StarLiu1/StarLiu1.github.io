@@ -1,76 +1,102 @@
-import AUTOMATION from "./Assets/Projects/3automation.jpg";
-import COAST from "./Assets/Projects/coast.jpg";
-import DROPSHIP from "./Assets/Projects/dropship.jpg";
-import GOOD_FOOD_DISCOUNTS from "./Assets/Projects/goodFoodDiscounts.png";
-import GUAMEDIA from "./Assets/Projects/guamedia.jpg";
-import HSP from "./Assets/Projects/hsp.png";
-import COSMOS from "./Assets/Projects/cosmos.jpg";
-import TECHSPEC from "./Assets/Projects/techspec.png";
-import TRAVELWELL from "./Assets/Projects/travelwell.png";
+import AFRD_FirePreidction from "./Assets/Projects/AFRD_FirePrediction.png";
+import EMORY_CovidDashboard from "./Assets/Projects/EMORY_CovidDashboard.png";
+import T2D_DataQuality from "./Assets/Projects/T2D_DataQuality.png";
+import PPD_Disparities from "./Assets/Projects/PPD_Disparities.jpeg";
+import APAR_ApplicabilityArea from "./Assets/Projects/APAR_ApplicabilityArea.png";
+import OHDSI_CommunityDashboard from "./Assets/Projects/OHDSI_CommunityDashboard.png";
+import INDEPENDENT_MixedMethod from "./Assets/Projects/INDEPENDENT_MixedMethod.jpg";
+
 
 
 export const PROJECTS = [
+  
   {
-    image: COSMOS,
-    name: "Micorsoft Azure Cosmos DB",
-    technologyUsed: "ReactJs, Javascript, Redux, knockout.js, Jest",
-    description: "Azure Cosmos DB is Microsoft's proprietary globally distributed, multi-model database service 'for managing data at planet-scale' Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale.",
-    url: "https://cosmos.azure.com/",
+    image: T2D_DataQuality,
+    name: "Phenotyping & Data Quality",
+    technologyUsed: "R, SQL, EHR, Claims",
+    // eslint-disable-next-line no-multi-str
+    description: "This project concerns the robustness of phenotypes in the face of data quality challenges. \
+                  We used Johns Hopkins Medical Institution EHR data and Johns Hopkins Healthcare claims data \
+                  from 2017-2019. We examine simulated data quality issues and assess differences in predicting \
+                  healthcare utilitzation and potential racial disparities.\
+                  ",
+    url: "https://drive.google.com/file/d/1USd5srjbEQ-hyrIXnHu3AoJvsPRqgnvL/view?usp=share_link",
   },
   {
-    image: TRAVELWELL,
-    name: "travlwell.com",
-    technologyUsed: "Shopify, React, typescript, polaris, GraphQL",
-    description: "Custom Luggage Tags and Passport Holders engraved with everywhere you've traveled and everywhere you will travel in the future.",
-    url: "https://travlwell.com/",
+    image: APAR_ApplicabilityArea,
+    name: "A Utility-based Approach for Evaluating Predictive Models",
+    technologyUsed: "R, SQL, EHR, Claims",
+    // eslint-disable-next-line no-multi-str
+    description: "We propose the Applicability Area (ApAr), \
+                  a decision-analytic utility-based approach to evaluating predictive models that \
+                  communicate the range of prior probability and test cutoffs for which the model \
+                  has positive utility; larger ApArs suggest a broader potential use of the model. \
+                  Decision makers looking to adopt and implement models can\
+                  leverage ApArs to assess if the local range of priors and utilities is within the respective ApArs.\
+                  ",
+    url: "https://drive.google.com/file/d/1AspxI6z95BkRwm1P4T_jK28rLEbYMYWT/view?usp=share_link",
   },
   {
-    image: COAST,
-    name: "Coast",
-    technologyUsed: "ReactNative, Javascript, Redux",
-    description: "Team collaboration mobile app and online services like slack Message people and groups without sharing phone numbers, communicate with managers and staff all in one place. and discuss or assign tasks to get stuff done",
-    url: "https://play.google.com/store/apps/details?id=com.fomo.android.app",
+    image: OHDSI_CommunityDashboard,
+    name: "OHDSI Dashboard",
+    technologyUsed: "Python, Flask, CosmosDB, API",
+    // eslint-disable-next-line no-multi-str
+    description: "The OHDSI Community Dashboard is a tool to highlight the \
+                  collective accomplishments and impact of our community. A goal of the dashboard is help \
+                  our community identify how members can see the OHDSI eco-system as an interconnected \
+                  system to make a larger impact. We hope you find these tools useful staying up to date \
+                  with all the activities in OHDSI as well as finding new colleagues in our community to \
+                  collaborate with. Dashboards are developed to represent various aspects of the OHDSI \
+                  community activities.\
+                  ",
+    url: "https://ohdsi.azurewebsites.net/",
   },
   {
-    image: AUTOMATION,
-    name: "3automation.com (RPA)",
-    technologyUsed: "ReactJs, Typescript, Redux",
-    description: "The next-gen Robotic Process Automation (#RPA) platform for retail and telecom domains. The ultimate automation platform for your Shopify, Email, E- commerce shop",
-    url: "https://www.3automation.com/",
+    image: INDEPENDENT_MixedMethod,
+    name: "A mixed methods study on collaborative care intervention components",
+    technologyUsed: "R, RCT Data",
+    // eslint-disable-next-line no-multi-str
+    description: "This was a secondary analysis of RCT data. Our objective was to assess which components of this \
+                  clinically and cost-effective collaborative care intervention were associated with improvements \
+                  in diabetes and depression. The qualitative findings illuminate reasons for variation in fidelity from the core model \
+                  and the importance of the complementarity of the different intervention components.\
+                  ",
+    url: "https://ohdsi.azurewebsites.net/",
   },
   {
-    image: GUAMEDIA,
-    name: "GuaMedia",
-    technologyUsed: "ReactNative, Javascript, Redux",
-    description: "Social media mobile app similar to Twitter for china. Social networking GUOMEDIA is an all-in-one social networking platform where users can build their own user profiles, create their own posts, Livestream broadcast and follow each other",
-    url: "https://play.google.com/store/apps/details?id=com.tiu.guo.media",
+    image: PPD_Disparities,
+    name: "Postpartum Depression Disparities",
+    technologyUsed: "R, HCUP",
+    // eslint-disable-next-line no-multi-str
+    description: "Limited research has considered differential temporal associations with the outcome. \
+                  We estimate the disparities in the risk of PPD and time to diagnosis for patients of \
+                  different racial and socioeconomic backgrounds. \
+                  Our findings serve to enhance intervention strategies and policies for phenotyping \
+                  patients at the highest risk of PPD and to highlight needs in data quality to support \
+                  future work on racial disparities in PPD.\
+                  ",
+    url: "https://pediatrics.jmir.org/2022/4/e38879/",
   },
   {
-    image: TECHSPEC,
-    name: "TechSpec",
-    technologyUsed: "ReactJs, Typescript, Redux",
-    description: "TechSpec is e-commerce web app. User can compare his product and purchange. This had a dashboard web app which had the data of orders placed and type of user.",
-    url: "",
+    image: EMORY_CovidDashboard,
+    name: "COVID-19 Equity Dashboard",
+    technologyUsed: "Python, ReactJS, MongoDB",
+    // eslint-disable-next-line no-multi-str
+    description: "The COVID-19 Health Equity Dashboard is an open-source web-based interactive data \
+                  visualization, that provides timely, localized, and actionable data of the ongoing COVID-19 pandemic. \
+                  The dashboard features interactive maps and charts alongside population vulnerability characteristics, \
+                  allowing for benchmarking county-level outcomes and disparities against the state and nation.",
+    url: "https://covid19.emory.edu/",
   },
   {
-    image: HSP,
-    name: "HSP (Health Solution Plus)",
-    technologyUsed: "ReactJs, Javascript, Redux",
-    description: "This is a Healthcare sector project which would be developed as replica of a desktop application. My responsibilities in this project are to develop UI, perform searching of medical codes and categories, addition/updation of codes and categories.",
-    url: "",
-  },
-  {
-    image: DROPSHIP,
-    name: "DropShip Shopify App",
-    technologyUsed: "Shopify, React, typescript, polaris, GraphQL, Nodejs, Koajs",
-    description: "It is customized clothes shopify app which fetch order from store and give option to customize product and send detail to store owner. Also maintain tracking etc of product.",
-    url: "",
-  },
-  {
-    image: GOOD_FOOD_DISCOUNTS,
-    name: "GoodFoodDiscounts",
-    technologyUsed: "ReactNative, Javascript, Redux",
-    description: "Good food discouts app is similar like swiggy. Food and hotel can be searched and can be order. Even has facility to add coupan. You can add food in favourite list.",
-    url: "",
+    image: AFRD_FirePreidction,
+    name: "AFRD Fire Prediction",
+    technologyUsed: "R, R Shiny, QGIS",
+    // eslint-disable-next-line no-multi-str
+    description: "This project is the result of a collaboration between Emory University’s Quantitative \
+                  Theory and Methods department and the Atlanta Fire Rescue Department (AFRD). The purpose \
+                  of this project is to build a predictive model that helps to understand where fire incidents are \
+                  likely to occur in the City of Atlanta.",
+    url: "https://drive.google.com/file/d/1NUPmYKXdwcSrBFd2Uz8GuTuUWRqR-2TR/view",
   },
 ];
