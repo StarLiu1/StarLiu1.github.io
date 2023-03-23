@@ -13,7 +13,7 @@ function ResumeNew() {
   const [pageNum, setPageNumber] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   var N = 10; 
-  const [arrayPageNum, setArrayPageNum] = useState(Array.apply(null, {length: N}).map(Number.call, Number));
+  const [arrayPageNum] = useState(Array.apply(null, {length: N}).map(Number.call, Number));
   const [arrayButtons, setArrayButtons] = useState(<button></button>);
 
   useEffect(() => {
