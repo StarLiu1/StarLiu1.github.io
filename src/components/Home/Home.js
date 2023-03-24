@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/StarSDLiu3.jpg";
 import SocialMedia from "../SocialMedia";
 import TypeWriter from "./TypeWriter";
 
 function Home() {
+  const [width, setWidth] = useState(1500);
+  const [height, setHeight] = useState(900);
+  const [customPadding, setCustomPadding] = useState(0);
+
+  useEffect(() => {
+    if(window.innerWidth > 900){
+      setWidth(500);
+      setHeight(520);
+    }else{
+      setWidth(400);
+      setHeight(320);
+      setCustomPadding(20);
+    }
+  }, []);
+
   return (
     <section>
       <Container fluid className="home-section" id="home">
@@ -32,13 +47,14 @@ function Home() {
               </div>
             </Col>
 
-            <Col md={6} style={{height:"500px", width:"600px"}}>
+            <Col md={5} style={{paddingTop: 30, paddingBottom: 60, width: width, height: height}}>
               <img src={myImg} className="profile-pic" alt="avatar" />
             </Col>
+            <div style={{height: 10}}></div>
           </Row>
         </Container>
       </Container>
-      <Container fluid className="home-about-section" id="about" >
+      <Container fluid className="home-about-section" id="about" style={{paddingTop: customPadding}}>
         <Container>
           <Row>
             <Col md={12} className="home-about-social">

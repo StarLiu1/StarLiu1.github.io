@@ -50,7 +50,7 @@ function ResumeNew() {
       <Container fluid className="resume-section">
         <Row className="resume" style={{paddingTop: "0px"}}>
           <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
-            <Page pageNumber={pageNum > totalPages ? totalPages : (pageNum < 1 ? 1 : pageNum)} scale={width > 900 ? 2.1 : 0.5} />
+            <Page pageNumber={pageNum > totalPages ? totalPages : (pageNum < 1 ? 1 : pageNum)} scale={width > 900 ? 2.1 : 0.6} />
             {/* {pageNum.map(function(pageNum, i){
               return <Page pageNumber={pageNum} key={i} scale={width > 900 ? 2 : 0.5}/>;
             })} */}
