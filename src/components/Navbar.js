@@ -36,7 +36,7 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="https://starliu1.github.io/" target="_blank">
+        <Navbar.Brand href="https://starliu1.github.io/#/">
           <MdDeveloperMode style={{ marginBottom: "2px" }} /> Star's Personal Website
         </Navbar.Brand>
         <Navbar.Toggle
