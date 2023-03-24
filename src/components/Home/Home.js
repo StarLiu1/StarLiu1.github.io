@@ -38,13 +38,17 @@ function Home() {
                 <strong className="main-name"> Star Liu</strong>
               </h1>
 
-              <p className="heading-description blockquote">
+              <p style={{fontSize: 20, paddingLeft:20}}>
                 Stardust on a bluedot
               </p>
 
-              <div className="heading-type">
-                <TypeWriter />
+              <div style={{fontSize: 16, paddingLeft:20, paddingBottom:0}}>
+                <b><TypeWriter /></b>
               </div>
+{/* 
+              <h8>
+                <TypeWriter />
+              </h8> */}
             </Col>
 
             <Col md={5} style={{paddingTop: 30, paddingBottom: 60, width: width, height: height}}>
