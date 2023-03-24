@@ -1,10 +1,11 @@
 import AFRD_FirePreidction from "./Assets/Projects/AFRD_FirePrediction.png";
 import EMORY_CovidDashboard from "./Assets/Projects/EMORY_CovidDashboard.png";
-import T2D_DataQuality from "./Assets/Projects/T2D_DataQuality.png";
+import LACE_ReadmissionPrediction from "./Assets/Projects/LACE_ReadmissionPrediction.png";
 import PPD_Disparities from "./Assets/Projects/PPD_Disparities.jpeg";
-import APAR_ApplicabilityArea from "./Assets/Projects/APAR_ApplicabilityArea.png";
-import OHDSI_CommunityDashboard from "./Assets/Projects/OHDSI_CommunityDashboard.png";
 import INDEPENDENT_MixedMethod from "./Assets/Projects/INDEPENDENT_MixedMethod.jpg";
+import OHDSI_CommunityDashboard from "./Assets/Projects/OHDSI_CommunityDashboard.png";
+import APAR_ApplicabilityArea from "./Assets/Projects/APAR_ApplicabilityArea.png";
+import T2D_DataQuality from "./Assets/Projects/T2D_DataQuality.png";
 
 
 
@@ -34,7 +35,7 @@ export const PROJECTS = [
                   Decision makers looking to adopt and implement models can\
                   leverage ApArs to assess if the local range of priors and utilities is within the respective ApArs.\
                   ",
-    url: "https://drive.google.com/file/d/1AspxI6z95BkRwm1P4T_jK28rLEbYMYWT/view?usp=share_link",
+    url: "https://drive.google.com/file/d/1B0OrjL3i6nLZvgJgBOHbu1-A-bGj8jhw/view?usp=share_link",
   },
   {
     image: OHDSI_CommunityDashboard,
@@ -61,7 +62,7 @@ export const PROJECTS = [
                   in diabetes and depression. The qualitative findings illuminate reasons for variation in fidelity from the core model \
                   and the importance of the complementarity of the different intervention components.\
                   ",
-    url: "https://ohdsi.azurewebsites.net/",
+    url: "",
   },
   {
     image: PPD_Disparities,
@@ -76,6 +77,18 @@ export const PROJECTS = [
                   future work on racial disparities in PPD.\
                   ",
     url: "https://pediatrics.jmir.org/2022/4/e38879/",
+  },
+  {
+    image: LACE_ReadmissionPrediction,
+    name: "SDoH, LACE, 30-day Readmission",
+    technologyUsed: "",
+    // eslint-disable-next-line no-multi-str
+    description: "Early and accurate prediction of patients at risk of readmission is key \
+                  to reducing costs and improving outcomes. LACE is a widely used score to predict \
+                  30-day readmissions. We examine whether adding social determinants of health (SDOH) \
+                  to LACE can improve its predictive performance.\
+                  ",
+    url: "https://academic.oup.com/jamiaopen/article/5/2/ooac046/6605166",
   },
   {
     image: EMORY_CovidDashboard,

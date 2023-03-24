@@ -40,7 +40,7 @@ function ResumeNew() {
     const array = []
     for(var p = 1; p <= totalPages; p++){
       const pageNumber = arrayPageNum[p]
-      array.push(<Button onClick={()=>setPageNumber(pageNumber)}>{p}</Button>)
+      array.push(<Button key={pageNumber} onClick={()=>setPageNumber(pageNumber)}>{p}</Button>)
     }
     setArrayButtons(array);
   }, [totalPages, arrayPageNum]);
