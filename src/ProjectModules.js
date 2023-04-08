@@ -81,7 +81,7 @@ export const PROJECTS = [
   {
     image: LACE_ReadmissionPrediction,
     name: "SDoH, LACE, 30-day Readmission",
-    technologyUsed: "",
+    technologyUsed: "Python, HCUP (done by the first author)",
     // eslint-disable-next-line no-multi-str
     description: "Early and accurate prediction of patients at risk of readmission is key \
                   to reducing costs and improving outcomes. LACE is a widely used score to predict \
