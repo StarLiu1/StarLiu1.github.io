@@ -62,7 +62,7 @@ export const PROJECTS = [
                   in diabetes and depression. The qualitative findings illuminate reasons for variation in fidelity from the core model \
                   and the importance of the complementarity of the different intervention components.\
                   ",
-    url: "",
+    url: "https://drive.google.com/file/d/1KK9DnQsHBH6_C9MWorcd7osx8joYYTQ2/view",
   },
   {
     image: PPD_Disparities,
