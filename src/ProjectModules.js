@@ -35,7 +35,7 @@ export const PROJECTS = [
                   Decision makers looking to adopt and implement models can\
                   leverage ApArs to assess if the local range of priors and utilities is within the respective ApArs.\
                   ",
-    url: "https://drive.google.com/file/d/1B0OrjL3i6nLZvgJgBOHbu1-A-bGj8jhw/view?usp=share_link",
+    url: "https://www.medrxiv.org/content/10.1101/2023.07.06.23292124v3",
   },
   {
     image: OHDSI_CommunityDashboard,
