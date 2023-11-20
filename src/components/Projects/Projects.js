@@ -23,6 +23,9 @@ function Projects() {
                 title={project.name}
                 description={project.description}
                 link={project.url}
+                link2={project.url2}
+                linkType={project.linkType}
+                date={project.date}
               />
             </Col>
           ))}
