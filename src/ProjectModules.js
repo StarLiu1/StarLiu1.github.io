@@ -67,7 +67,7 @@ export const PROJECTS = [
                   ",
     date: "Accepted by and presented at AMIA Symposium 07/2023",
     url: "https://www.medrxiv.org/content/10.1101/2023.07.06.23292124v4",
-    url2: "https://drive.google.com/file/d/1USd5srjbEQ-hyrIXnHu3AoJvsPRqgnvL/view?usp=share_link",
+    url2: "https://drive.google.com/file/d/1VtbreaWhwGmLZgu2O9n8RKgSnX87pno6/view?usp=sharing",
     linkType: ["View Paper","View Presentation"]
   },
   {
