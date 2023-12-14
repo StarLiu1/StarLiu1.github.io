@@ -23,7 +23,7 @@ function Home() {
   return (
     <section>
       <Container fluid className="home-section" id="home">
-        <Container className="home-content" style={{height:"500px"}}>
+        <Container className="home-content">
           <Row>
             <Col md={6} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">

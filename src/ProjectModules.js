@@ -7,11 +7,29 @@ import OHDSI_CommunityDashboard from "./Assets/Projects/OHDSI_CommunityDashboard
 import APAR_ApplicabilityArea from "./Assets/Projects/APAR_ApplicabilityArea.png";
 import T2D_DataQuality from "./Assets/Projects/T2D_DataQuality.png";
 import HIE_Phenotyping from "./Assets/Projects/HIEPhenotype.jpg";
+import MLDL_ClassProject from "./Assets/Projects/MLDL_ClassProject.jpg";
 
 
 
 export const PROJECTS = [
   
+  {
+    image: MLDL_ClassProject,
+    name: "Bridging Domains: Harnessing Ensemble and ADDA for Domain Adaptation",
+    technologyUsed: "Python, OfficeHome Dataset, Deep Learning",
+    // eslint-disable-next-line no-multi-str
+    description: "This is a CS482/682 Machine Learning Deep Learning Final Project. \
+                  Unsupervised domain adaptation concerns the scenario where there are labeled images \
+                  from the source domain dataset and unlabeled images from the target domain dataset.\
+                  In the context of deep learning, the task is to learn features from the images of one \
+                  domain and transfer learned representations to classify unlabeled target domain images. \
+                  We implemented ADDA and ensemble strategies to enhance the adaptability and \
+                  accuracy of image classification across various domains.\
+                  ",
+    date: "Final Class Report",
+    url: "https://github.com/StarLiu1/MLDL_Domain_Adaptation",
+    linkType: ["View GitHub"]
+  },
   {
     image: HIE_Phenotyping,
     name: "Phenotyping Hypoxic-Ischemic Encephalopathy",
