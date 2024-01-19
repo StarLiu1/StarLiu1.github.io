@@ -5,9 +5,10 @@ export const SKILLS = [
   { name: "MongoDB/CosmosDB", initialRating: 3 },
   { name: "ReactJS", initialRating: 3 },
   { name: "Html", initialRating: 3 },
+  { name: "R Shiny", initialRating: 3 },
   { name: "Java", initialRating: 2 },
 ];
 
-export const TOOLS = ["Visual Studio Code", "GitHub", "Npm (Node Package Manager)", 
-                      "Sublime Text", "Overleaf", "TreeAge", "Tableau" ,"Microsoft Office",
+export const TOOLS = ["Mixed methods research", "Observational research", "EHR and Claims", "Predictive Modeling", "Regression methods", "Decision Analysis", 
+                      "Model Evaluation", "Deep learning", "Data visualization"
                       ]
