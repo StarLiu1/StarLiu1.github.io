@@ -68,12 +68,6 @@ function Home() {
                 Whether you want to get in touch, or talk about a project.
                 <br />
                 <strong>Feel free to connect with me</strong>
-                <html>
-                {/* <!-- Calendly inline widget begin --> */}
-                  <div class="calendly-inline-widget" data-url="https://calendly.com/starliu-sstx" style="min-width:320px;height:700px;"></div>
-                  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                {/* <!-- Calendly inline widget end --> */}
-                </html>
               </p>
               <SocialMedia />
             </Col>

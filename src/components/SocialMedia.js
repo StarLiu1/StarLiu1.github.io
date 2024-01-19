@@ -4,7 +4,7 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaCalendar, FaLinkedinIn } from "react-icons/fa";
 
 function SocialMedia() {
   return (
@@ -47,6 +47,16 @@ function SocialMedia() {
           className="icon-colour home-social-icons"
         >
           <MdEmail className="social-icon" />
+        </a>
+      </li>
+      <li className="social-icons">
+        <a
+          href="https://calendly.com/starliu-sstx"
+          target="_blank"
+          rel="noreferrer"
+          className="icon-colour home-social-icons"
+        >
+          <FaCalendar className="social-icon" />
         </a>
       </li>
     </ul>
