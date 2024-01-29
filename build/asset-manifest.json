@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c07d5590.css",
-    "main.js": "/static/js/main.1ddb9eba.js",
+    "main.js": "/static/js/main.8659691c.js",
     "static/media/PPD_Disparities.jpeg": "/static/media/PPD_Disparities.44a3bf72fcf089afe0ba.jpeg",
     "static/media/StarSDLiu3.jpg": "/static/media/StarSDLiu3.3a3db33ab6340f5205eb.jpg",
     "static/media/EMORY_CovidDashboard.png": "/static/media/EMORY_CovidDashboard.f5fa5111042e6498758f.png",
@@ -12,15 +12,15 @@
     "static/media/OHDSI_CommunityDashboard.png": "/static/media/OHDSI_CommunityDashboard.d508e0b6fa1639b017f7.png",
     "static/media/MLDL_ClassProject.jpg": "/static/media/MLDL_ClassProject.4d82ace2c179d098c89c.jpg",
     "static/media/LACE_ReadmissionPrediction.png": "/static/media/LACE_ReadmissionPrediction.ebd57b2a1a5ad1aa53e0.png",
-    "static/media/Liu, Star_CV.pdf": "/static/media/Liu, Star_CV.4ca99e3932150cbc9bec.pdf",
+    "static/media/Liu, Star_CV.pdf": "/static/media/Liu, Star_CV.4f03e0e81b8de5dba42d.pdf",
     "static/media/APAR_ApplicabilityArea.png": "/static/media/APAR_ApplicabilityArea.2f47bb95046f48fa7015.png",
     "static/media/INDEPENDENT_MixedMethod.jpg": "/static/media/INDEPENDENT_MixedMethod.b054bbc40ff1de332d81.jpg",
     "index.html": "/index.html",
     "main.c07d5590.css.map": "/static/css/main.c07d5590.css.map",
-    "main.1ddb9eba.js.map": "/static/js/main.1ddb9eba.js.map"
+    "main.8659691c.js.map": "/static/js/main.8659691c.js.map"
   },
   "entrypoints": [
     "static/css/main.c07d5590.css",
-    "static/js/main.1ddb9eba.js"
+    "static/js/main.8659691c.js"
   ]
 }
