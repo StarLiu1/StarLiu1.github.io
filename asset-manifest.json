@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c07d5590.css",
-    "main.js": "/static/js/main.8ce7f13f.js",
+    "main.js": "/static/js/main.49baf3e4.js",
     "static/media/PPD_Disparities.jpeg": "/static/media/PPD_Disparities.44a3bf72fcf089afe0ba.jpeg",
     "static/media/StarSDLiu3.jpg": "/static/media/StarSDLiu3.3a3db33ab6340f5205eb.jpg",
     "static/media/EMORY_CovidDashboard.png": "/static/media/EMORY_CovidDashboard.f5fa5111042e6498758f.png",
@@ -17,10 +17,10 @@
     "static/media/INDEPENDENT_MixedMethod.jpg": "/static/media/INDEPENDENT_MixedMethod.b054bbc40ff1de332d81.jpg",
     "index.html": "/index.html",
     "main.c07d5590.css.map": "/static/css/main.c07d5590.css.map",
-    "main.8ce7f13f.js.map": "/static/js/main.8ce7f13f.js.map"
+    "main.49baf3e4.js.map": "/static/js/main.49baf3e4.js.map"
   },
   "entrypoints": [
     "static/css/main.c07d5590.css",
-    "static/js/main.8ce7f13f.js"
+    "static/js/main.49baf3e4.js"
   ]
 }
