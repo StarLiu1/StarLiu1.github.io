@@ -7,22 +7,12 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
+  AiOutlineUser,
 } from "react-icons/ai";
 
 import { MdDeveloperMode } from "react-icons/md";
 
 import { CgFileDocument } from "react-icons/cg";
-
-// function DashApp() {
-//   return (
-//     <iframe
-//       src="/api/dash_app"
-//       style={{ width: '100%', height: '500px', border: 'none' }}
-//       title="Dash App"
-//     ></iframe>
-//   );
-// }
-
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -97,16 +87,6 @@ function NavBar() {
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> CV
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/api/dashapp"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> dashapp
               </Nav.Link>
             </Nav.Item>
 
