@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
-import About from "./components/About/About";
+// import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import CV from "./components/ResumeCV/CV";
+// import dashapp from "./components/Dashapp/dashapp";
 import {HashRouter, Route } from "react-router-dom";
 import "./style.css";
 import "./App.css";
@@ -36,6 +37,7 @@ function App() {
           <Route path="/project" component={Projects} />
           {/* <Route path="/about" component={About} /> */}
           <Route path="/cv" component={CV} />
+          {/* <Route path="/dashapp" component={dashapp} /> */}
           <Footer />
         </div>
       )}
