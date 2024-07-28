@@ -7,22 +7,21 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
-  AiOutlineUser,
 } from "react-icons/ai";
 
 import { MdDeveloperMode } from "react-icons/md";
 
 import { CgFileDocument } from "react-icons/cg";
 
-function DashApp() {
-  return (
-    <iframe
-      src="/api/dash_app"
-      style={{ width: '100%', height: '500px', border: 'none' }}
-      title="Dash App"
-    ></iframe>
-  );
-}
+// function DashApp() {
+//   return (
+//     <iframe
+//       src="/api/dash_app"
+//       style={{ width: '100%', height: '500px', border: 'none' }}
+//       title="Dash App"
+//     ></iframe>
+//   );
+// }
 
 
 function NavBar() {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/StarSDLiu3.jpg";
 import SocialMedia from "../SocialMedia";
-import TypeWriter from "./TypeWriter";
+// import TypeWriter from "./TypeWriter";
 import { SKILLS, TOOLS} from "../../SkillsTools";
 import Techstack from "../About/Techstack";
 
@@ -13,6 +13,8 @@ function Home() {
 
   useEffect(() => {
     if(window.innerWidth > 900){
+      width = 500
+      height = 520
       setWidth(500);
       setHeight(520);
     }else{
