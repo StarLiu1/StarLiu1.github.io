@@ -8,7 +8,7 @@ import Techstack from "../About/Techstack";
 
 function Home() {
   // const [width, setWidth] = useState(1500);
-  const [height, setHeight] = useState(900);
+  // const [height, setHeight] = useState(900);
   const [customPadding, setCustomPadding] = useState(0);
 
   useEffect(() => {
