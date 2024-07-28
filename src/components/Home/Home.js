@@ -7,19 +7,18 @@ import { SKILLS, TOOLS} from "../../SkillsTools";
 import Techstack from "../About/Techstack";
 
 function Home() {
-  const [width, setWidth] = useState(1500);
+  // const [width, setWidth] = useState(1500);
   const [height, setHeight] = useState(900);
   const [customPadding, setCustomPadding] = useState(0);
 
   useEffect(() => {
     if(window.innerWidth > 900){
-      width = 500
-      height = 520
-      setWidth(500);
-      setHeight(520);
+      
+      // setWidth(500);
+      // setHeight(520);
     }else{
-      setWidth(400);
-      setHeight(320);
+      // setWidth(400);
+      // setHeight(320);
       setCustomPadding(20);
     }
   }, []);
