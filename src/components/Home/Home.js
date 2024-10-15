@@ -42,12 +42,14 @@ function Home() {
               (open to suggestions). I love to think and design solutions with others that solve real and hard problems in healthcare and others. 
               I go beyond the realm of my work just to keep my brain active and creative.
               <br/><br/>
-              I am a first-year PhD student at Johns Hopkins University School of Medicine. My current focus is estimating the uncertainty of machine learning for clinical decision-making 
-              using decision analysis and utility theory.
+              I am a 2nd year PhD student at Johns Hopkins University School of Medicine. My focus is estimating the uncertainty of machine learning for clinical decision-making 
+              using decision analysis and utility theory. Concurrently, I am also conducting research on neonatal severity of illness, pediatric sepsis, and antibiotics stewardship. 
               Over the years, I have accumulated experience as a healthcare technology company intern as well as multiple researcher/analyst positions 
               across multiple academic institutions. Notably, I have conducted and published research in postpartum depression, diabetes, HIE, data quality, phenotyping, 
               information retrieval, decision-making and machine learning, readmissions, and others using various research designs, data sources, 
-              and statistical methods. Huge shoutout to all the students, faculties, and mentors from all walks of life without whom I wouldn't be who I am today.
+              and statistical methods. 
+              <br/><br/>
+              Huge shoutout to all the students, faculties, and mentors from all walks of life without whom I wouldn't be who I am today.
               I'd love to connect with others who share similar interests.
             </p>
           </Col>
