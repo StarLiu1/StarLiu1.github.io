@@ -11,7 +11,7 @@ function Projects() {
           My Recent <strong className="purple">Works </strong>
         </h1>
         <p style={{fontSize: "24pt"}}>
-          Here are my ongoing and past research projects (publications, dashboards, podium presentations, posters, and even noteworthy class projects).
+          Here are my ongoing and past research projects (publications, dashboards, podium presentations, posters, and select class projects).
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {PROJECTS.map((project, index) => (

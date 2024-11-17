@@ -256,7 +256,7 @@ html {
 
 .home-section {
   position: relative;
-  z-index: -1;
+  z-index: 0;
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -267,6 +267,8 @@ html {
   padding: 3rem 0 0rem !important;
   color: #414141;
   text-align: left;
+  pointer-events: auto !important;
+  z-index: 10;
 }
 
 .heading-description {
@@ -815,4 +817,12 @@ html {
   .skill-tools-wrapper{
     flex-direction: column;
   }
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
 }

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/StarSDLiu3.jpg";
 import SocialMedia from "../SocialMedia";
-import TypeWriter from "./TypeWriter";
+// import TypeWriter from "./TypeWriter";
 import { SKILLS, TOOLS} from "../../SkillsTools";
 import Techstack from "../About/Techstack";
+// import { Link} from "react-router-dom";
+// import Projects from "../../components/Projects/Projects";
 
 function Home() {
   const [width, setWidth] = useState(1500);
@@ -34,6 +36,7 @@ function Home() {
               About me
             </strong>
             <p style={{fontSize: "14pt"}}>
+
               With 5 years of experience and counting in biomedical informatics, data science, and public health research, I am more 
               excited than ever about the tremendous challenges and opportunities in healthcare. My goal is to leverage novel informatics solutions 
               to make impacts in clinical research and practice, chronic diseases, geriatrics, and true "health"care. 
@@ -42,8 +45,9 @@ function Home() {
               (open to suggestions). I love to think and design solutions with others that solve real and hard problems in healthcare and others. 
               I go beyond the realm of my work just to keep my brain active and creative.
               <br/><br/>
-              I am a 2nd year PhD student at Johns Hopkins University School of Medicine. My focus is estimating the uncertainty of machine learning for clinical decision-making 
-              using decision analysis and utility theory. Concurrently, I am also conducting research on neonatal severity of illness, pediatric sepsis, and antibiotics stewardship. 
+              I am a 2nd year PhD candidate at Johns Hopkins University School of Medicine. My focus is estimating the uncertainty of machine learning for clinical decision-making 
+              using decision analysis and utility theory. Concurrently, I am also conducting research on neonatal severity of illness, pediatric sepsis, and antibiotics stewardship
+              (head over to <a href="/#/project">Projects</a> for more). 
               Over the years, I have accumulated experience as a healthcare technology company intern as well as multiple researcher/analyst positions 
               across multiple academic institutions. Notably, I have conducted and published research in postpartum depression, diabetes, HIE, data quality, phenotyping, 
               information retrieval, decision-making and machine learning, readmissions, and others using various research designs, data sources, 
@@ -52,6 +56,7 @@ function Home() {
               Huge shoutout to all the students, faculties, and mentors from all walks of life without whom I wouldn't be who I am today.
               I'd love to connect with others who share similar interests.
             </p>
+            
           </Col>
         </Row>
         <Row className="skill-tools-wrapper" style={{paddingTop: "30pt"}}>
