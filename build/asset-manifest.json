@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.2511219a.css",
-    "main.js": "/static/js/main.4b4d2e5c.js",
-    "static/media/PPD_Disparities.jpeg": "/static/media/PPD_Disparities.44a3bf72fcf089afe0ba.jpeg",
+    "main.js": "/static/js/main.bbd12214.js",
     "static/media/EMORY_CovidDashboard.png": "/static/media/EMORY_CovidDashboard.f5fa5111042e6498758f.png",
     "static/media/AFRD_FirePrediction.png": "/static/media/AFRD_FirePrediction.c31c2317f42df7c11238.png",
     "static/media/StarSDLiu3.jpg": "/static/media/StarSDLiu3.4a1e4e99e15f990a397b.jpg",
     "static/media/T2D_DataQuality.png": "/static/media/T2D_DataQuality.05114fdc535c40b57408.png",
     "static/media/HIEPhenotype.jpg": "/static/media/HIEPhenotype.cabb7751e31966576586.jpg",
     "static/media/OHDSI_CommunityDashboard.png": "/static/media/OHDSI_CommunityDashboard.d508e0b6fa1639b017f7.png",
+    "static/media/PPD_Disparities.jpeg": "/static/media/PPD_Disparities.3c5efdc4808a5cadf39f.jpeg",
     "static/media/NICU_Pathogen.jpg": "/static/media/NICU_Pathogen.a6d5b7c353e44d55db05.jpg",
     "static/media/OHDSI_SepsisNetworkStudy.jpg": "/static/media/OHDSI_SepsisNetworkStudy.d1ac6d0b778566076260.jpg",
     "static/media/MLDL_ClassProject.jpg": "/static/media/MLDL_ClassProject.4d82ace2c179d098c89c.jpg",
@@ -22,10 +22,10 @@
     "static/media/INDEPENDENT_MixedMethod.jpg": "/static/media/INDEPENDENT_MixedMethod.b054bbc40ff1de332d81.jpg",
     "index.html": "/index.html",
     "main.2511219a.css.map": "/static/css/main.2511219a.css.map",
-    "main.4b4d2e5c.js.map": "/static/js/main.4b4d2e5c.js.map"
+    "main.bbd12214.js.map": "/static/js/main.bbd12214.js.map"
   },
   "entrypoints": [
     "static/css/main.2511219a.css",
-    "static/js/main.4b4d2e5c.js"
+    "static/js/main.bbd12214.js"
   ]
 }
