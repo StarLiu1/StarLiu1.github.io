@@ -51,7 +51,7 @@ function SocialMedia() {
       </li>
       <li className="social-icons">
         <a
-          href="https://calendly.com/starliu-sstx"
+          href="https://jhubluejays.zoom.us/zbook/star-liu--jhu-bids-phd-2nd-year/one-on-one-with-star-liu"
           target="_blank"
           rel="noreferrer"
           className="icon-colour home-social-icons"
