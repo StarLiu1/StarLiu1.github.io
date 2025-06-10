@@ -83,8 +83,8 @@ export const PROJECTS = [
   },
   {
     image: CUP_dashboard,
-    name: "CUP - Decision Analytic Dashboard",
-    technologyUsed: "Python",
+    name: "interactive Clinical Utility Decision Analytic (iCUDA) Dashboard",
+    technologyUsed: "Python, JavaScript, Azure",
     // eslint-disable-next-line no-multi-str
     description: "Driven by decision analysis and utility theory, we built an intuitive and \
                   interactive dashboard for visualizing and analyzing the utility of machine \
@@ -96,8 +96,9 @@ export const PROJECTS = [
                   The home dashboard also comes with ability to generate a structured PDF report.\
                   ",
     date: "Ongoing work and official URL will be posted to GitHub",
-    url: "https://github.com/StarLiu1/da-dashapp",
-    linkType: ["Clone Repo to Use"]
+    url: "https://github.com/StarLiu1/icuda",
+    url2: "https://icuda-cah8f2cfgzcba8fn.eastus2-01.azurewebsites.net/",
+    linkType: ["GitHub Repo","Temporary Link"]
   },
   {
     image: CUP_DecisionAnalysis,
