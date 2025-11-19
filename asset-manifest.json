@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2511219a.css",
-    "main.js": "/static/js/main.a469abbd.js",
+    "main.js": "/static/js/main.7ebdd137.js",
     "static/media/EMORY_CovidDashboard.png": "/static/media/EMORY_CovidDashboard.f5fa5111042e6498758f.png",
     "static/media/AFRD_FirePrediction.png": "/static/media/AFRD_FirePrediction.c31c2317f42df7c11238.png",
     "static/media/StarSDLiu3.jpg": "/static/media/StarSDLiu3.4a1e4e99e15f990a397b.jpg",
@@ -15,17 +15,17 @@
     "static/media/T2D_Subtyping.jpg": "/static/media/T2D_Subtyping.d3a8f348336c9aa5c0fa.jpg",
     "static/media/NICU_AbxStewardship.jpg": "/static/media/NICU_AbxStewardship.156a9f2f09c4890fa4d2.jpg",
     "static/media/LACE_ReadmissionPrediction.png": "/static/media/LACE_ReadmissionPrediction.ebd57b2a1a5ad1aa53e0.png",
-    "static/media/Liu, Star_CV.pdf": "/static/media/Liu, Star_CV.32ee810b8483db0a1c49.pdf",
+    "static/media/Liu, Star_CV.pdf": "/static/media/Liu, Star_CV.fc717407f079952b3cdc.pdf",
     "static/media/CUP_DecisionAnalysis.jpg": "/static/media/CUP_DecisionAnalysis.342e128833f8d738b189.jpg",
     "static/media/CUP_dashboard.jpg": "/static/media/CUP_dashboard.2b9c5d86488989148808.jpg",
     "static/media/APAR_ApplicabilityArea.png": "/static/media/APAR_ApplicabilityArea.2f47bb95046f48fa7015.png",
     "static/media/INDEPENDENT_MixedMethod.jpg": "/static/media/INDEPENDENT_MixedMethod.b054bbc40ff1de332d81.jpg",
     "index.html": "/index.html",
     "main.2511219a.css.map": "/static/css/main.2511219a.css.map",
-    "main.a469abbd.js.map": "/static/js/main.a469abbd.js.map"
+    "main.7ebdd137.js.map": "/static/js/main.7ebdd137.js.map"
   },
   "entrypoints": [
     "static/css/main.2511219a.css",
-    "static/js/main.a469abbd.js"
+    "static/js/main.7ebdd137.js"
   ]
 }
