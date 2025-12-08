@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { BiLinkExternal } from "react-icons/bi";
 
 function ProjectCards(props) {
-  let linkType1, linkType2;
+  let linkType1, linkType2, linkType3, linkType4;
 
   // Check if props.linkType is an array and has elements
   if (Array.isArray(props.linkType) && props.linkType.length > 0) {
@@ -14,6 +14,8 @@ function ProjectCards(props) {
     // Destructure the second element if it exists
     if (props.linkType.length > 1) {
       linkType2 = props.linkType[1];
+      linkType3 = props.linkType[2];
+      linkType4 = props.linkType[3];
     }
   }
   return (
@@ -36,6 +38,18 @@ function ProjectCards(props) {
           <Button variant="primary" href={props.link2} target="_blank"className="download-button">
             <BiLinkExternal /> &nbsp;
             {linkType2}
+          </Button> : null
+        }
+        {props.link3 ? 
+          <Button variant="primary" href={props.link3} target="_blank"className="download-button">
+            <BiLinkExternal /> &nbsp;
+            {linkType3}
+          </Button> : null
+        }
+        {props.link4 ? 
+          <Button variant="primary" href={props.link4} target="_blank"className="download-button">
+            <BiLinkExternal /> &nbsp;
+            {linkType4}
           </Button> : null
         }
       </Card.Body>

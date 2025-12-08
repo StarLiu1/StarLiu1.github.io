@@ -24,6 +24,8 @@ function Projects() {
                 description={project.description}
                 link={project.url}
                 link2={project.url2}
+                link3={project.url3}
+                link4={project.url4}
                 linkType={project.linkType}
                 date={project.date}
               />

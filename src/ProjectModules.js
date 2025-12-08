@@ -164,13 +164,16 @@ export const PROJECTS = [
                   challenges. \
                   We used Johns Hopkins Medical Institution EHR data and Johns \
                   Hopkins Healthcare claims data \
-                  from 2017-2019. We examine simulated data quality issues and \
-                  assessed differences in predicting \
-                  healthcare utilitzation and potential racial disparities.\
+                  from 2017-2019. We examine 1) phenotyping algorithms' performance, 2) impact of data quality on phenotyping \
+                  3) impact of phenotype on predicting utilization, and \
+                  4) disparities.\
                   ",
-    date: "First paper published in JMIR Medical Informatics. 3 More Papers Under Review",
+    date: "Papers published in JMIR Medical Informatics, Racial and Ethnic Health Disparities, MDPI Healthcare, BMJ Health Care Informatics",
     url: "https://pubmed.ncbi.nlm.nih.gov/39189917/",
-    linkType: ["View Paper 1"]
+    url2: "https://pubmed.ncbi.nlm.nih.gov/40425977/",
+    url3: "https://pubmed.ncbi.nlm.nih.gov/41008424/",
+    url4: "https://pubmed.ncbi.nlm.nih.gov/41125310/",
+    linkType: ["View Paper 1", "View Paper 2", "View Paper 3", "View Paper 4"]
   },
   {
     image: INDEPENDENT_MixedMethod,
@@ -184,7 +187,7 @@ export const PROJECTS = [
                   ",
     date: "Published in Primary Care Diabetes in 06/2024",
     url: "https://pubmed.ncbi.nlm.nih.gov/38360505/",
-    linkType: ["View Project"]
+    linkType: ["View Paper"]
   },
   {
     image: OHDSI_CommunityDashboard,
