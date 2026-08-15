@@ -14,12 +14,30 @@ import OHDSI_SepsisNetworkStudy from "./Assets/Projects/OHDSI_SepsisNetworkStudy
 import NICU_AbxStewardship from "./Assets/Projects/NICU_AbxStewardship.jpg";
 import NICU_Pathogen from "./Assets/Projects/NICU_Pathogen.jpg";
 import CUP_dashboard from "./Assets/Projects/CUP_dashboard.jpg";
+import Clinical_LLM_Cost from "./Assets/Projects/Clinical_LLM_Cost.jpg";
 
 //T2D_Subtyping, OHDSI_SepsisNetworkStudy, NICU_AbxStewardship, NICU_Pathogen
 // pathogen specific neonatal severity of illness, bacteremia and abx stewardship, sepsis network study, subtyping t2d, amia podium CUP and Bayesian boot
 
 export const PROJECTS = [
-  
+  {
+    image: Clinical_LLM_Cost,
+    name: "Mechanistic Interpreability: Do LLMs Use Cost Information in Clinical Decisions?",
+    technologyUsed: "PyTorch, Transformers, HPC, Python",
+    // eslint-disable-next-line no-multi-str
+    description: "Clinical decisions are asymmetric — missing a disease rarely costs the same \
+                  as a false alarm. We test whether open-weight instruction-tuned LLMs actually \
+                  use cost information when making diagnostic decisions, or merely represent it \
+                  internally without acting on it. Linear probes on residual-stream activations \
+                  show that cost direction and patient risk are both linearly encoded, yet \
+                  neither reliably integrates into threshold-coherent decisions. \
+                  This work exposes a representation-to-action gap relevant to any \
+                  high-stakes deployment of LLMs in medicine.\
+                  ",
+    date: "ML4H 2026",
+    url: "",
+    linkType: ["Paper In Preparation"]
+  },
   {
     image: NICU_Pathogen,
     name: "NICU - Pathogen Specific Severity of Illness",
@@ -31,9 +49,9 @@ export const PROJECTS = [
                   We are interested in characterizing pathogen-specific severity of illness. \
                   This work will enable individualized therapy for neonates with sepsis.\
                   ",
-    date: "Ongoing",
+    date: "JAMA Network Open",
     url: "",
-    linkType: ["No shareable work yet"]
+    linkType: ["Paper In Press"]
   },
   {
     image: NICU_AbxStewardship,
@@ -50,7 +68,7 @@ export const PROJECTS = [
                   ",
     date: "Ongoing",
     url: "",
-    linkType: ["No shareable work yet"]
+    linkType: ["Work Under Review"]
   },
   {
     image: OHDSI_SepsisNetworkStudy,
@@ -77,9 +95,9 @@ export const PROJECTS = [
                   We developed and validated classification algorithms to accurately identify 3 out of the 4 major subtypes. \
                   We found novel variations in treatment patterns and underscore the need to develop tailored management strategies. \
                   ",
-    date: "Under Review at Nature Medicine",
-    url: "https://www.medrxiv.org/content/10.1101/2024.10.08.24315128v2",
-    linkType: ["View Preprint"]
+    date: "Published in Diabetologia 06/2026",
+    url: "https://pubmed.ncbi.nlm.nih.gov/41723302/",
+    linkType: ["View Paper"]
   },
   {
     image: CUP_dashboard,
@@ -168,7 +186,7 @@ export const PROJECTS = [
                   3) impact of phenotype on predicting utilization, and \
                   4) disparities.\
                   ",
-    date: "Papers published in JMIR Medical Informatics, Racial and Ethnic Health Disparities, MDPI Healthcare, BMJ Health Care Informatics",
+    date: "Papers published in JMIR Medical Informatics (08/2024), Racial and Ethnic Health Disparities (08/2026), MDPI Healthcare (09/2025), BMJ Health Care Informatics (10/2025)",
     url: "https://pubmed.ncbi.nlm.nih.gov/39189917/",
     url2: "https://pubmed.ncbi.nlm.nih.gov/40425977/",
     url3: "https://pubmed.ncbi.nlm.nih.gov/41008424/",
