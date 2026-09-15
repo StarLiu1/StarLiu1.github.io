@@ -45,7 +45,7 @@ function Home() {
               (open to suggestions). I love to think and design solutions with others that solve real and hard problems in healthcare and others. 
               I go beyond the realm of my work just to keep my brain active and creative.
               <br/><br/>
-              I am a <b>3rd year PhD candidate</b> at Johns Hopkins University School of Medicine. My focus is <b>evaluating ML/AI models for deployment and clinical decision-making </b>
+              I am a <b>4th year PhD candidate</b> at Johns Hopkins University School of Medicine. My focus is <b>evaluating ML/AI models for deployment and clinical decision-making </b>
               using decision analysis and utility theory. Concurrently, I am also conducting research on <b>clinician preference elicitation, neonatal organ dysfunction, antibiotics stewardship, 
                 eCQM mapping to OMOP using LLM, and pediatric sepsis</b> (head over to <a href="/#/project">Projects</a> for more). 
               Over the years, I have accumulated experience as a healthcare technology company intern as well as multiple researcher/analyst positions 
