@@ -15,9 +15,11 @@ import NICU_AbxStewardship from "./Assets/Projects/NICU_AbxStewardship.jpg";
 import NICU_Pathogen from "./Assets/Projects/NICU_Pathogen.jpg";
 import CUP_dashboard from "./Assets/Projects/CUP_dashboard.jpg";
 import Clinical_LLM_Cost from "./Assets/Projects/Clinical_LLM_Cost.jpg";
+import VTE_iHGR from "./Assets/Projects/VTE_iHGR.jpg";
 
 //T2D_Subtyping, OHDSI_SepsisNetworkStudy, NICU_AbxStewardship, NICU_Pathogen
 // pathogen specific neonatal severity of illness, bacteremia and abx stewardship, sepsis network study, subtyping t2d, amia podium CUP and Bayesian boot
+// 
 
 export const PROJECTS = [
   {
@@ -35,23 +37,25 @@ export const PROJECTS = [
                   high-stakes deployment of LLMs in medicine.\
                   ",
     date: "ML4H 2026",
-    url: "",
-    linkType: ["Paper In Preparation"]
+    url: "https://arxiv.org/pdf/2609.23999",
+    linkType: ["arXiv Preprint"]
   },
   {
-    image: NICU_Pathogen,
-    name: "NICU - Pathogen Specific Severity of Illness",
-    technologyUsed: "NICU, SQL, Python",
+    image: VTE_iHGR,
+    name: "VTE - Generative AI Risk Stratification",
+    technologyUsed: "GenAI, Databricks, SQL, Python",
     // eslint-disable-next-line no-multi-str
-    description: "Sepsis is complex, especially among neonates. \
-                  Existing literature has treated sepsis as a homgeneous group, yet \
-                  sepsis can be caused by a number of different pathogens. \
-                  We are interested in characterizing pathogen-specific severity of illness. \
-                  This work will enable individualized therapy for neonates with sepsis.\
+    description: "Preventing blood clots in hospitalized patients depends on assessing VTE \
+                  risk accurately, but risk assessment is inconsistent in routine care. We evaluated a pilot \
+                  EHR-integrated generative AI system (iHGR) across Johns Hopkins hospitals, comparing it with \
+                  clinician order sets and physician chart review on 500 admissions. iHGR was more sensitive \
+                  than both checklist-based order sets and clinician judgement. Its misses came mostly from \
+                  risk factors buried in narrative notes. This work shows how learning health systems can \
+                  evaluate AI tools before scaling them up.\
                   ",
-    date: "JAMA Network Open",
-    url: "",
-    linkType: ["Paper In Press"]
+    date: "NPJ Health Systems",
+    url: "https://www.medrxiv.org/content/10.64898/2026.06.17.26355819v2",
+    linkType: ["medRxiv Preprint"]
   },
   {
     image: NICU_AbxStewardship,
@@ -66,9 +70,24 @@ export const PROJECTS = [
                   a negative blood culture at 48 hours. \
                   Our goal is to move up the needle well before 48 hours, i.e., 6, 12, or 24 hours. \
                   ",
-    date: "Ongoing",
+    date: "Published in The Journal of Pediatrics (JPEDS)",
     url: "",
-    linkType: ["Work Under Review"]
+    linkType: ["Paper In Press"]
+  },
+  {
+    image: NICU_Pathogen,
+    name: "NICU - Pathogen Specific Severity of Illness",
+    technologyUsed: "NICU, SQL, Python",
+    // eslint-disable-next-line no-multi-str
+    description: "Sepsis is complex, especially among neonates. \
+                  Existing literature has treated sepsis as a homgeneous group, yet \
+                  sepsis can be caused by a number of different pathogens. \
+                  We are interested in characterizing pathogen-specific severity of illness. \
+                  This work will enable individualized therapy for neonates with sepsis.\
+                  ",
+    date: "Published in JAMA Network Open 09/2026",
+    url: "https://pubmed.ncbi.nlm.nih.gov/42709435/",
+    linkType: ["View Paper"]
   },
   {
     image: OHDSI_SepsisNetworkStudy,
