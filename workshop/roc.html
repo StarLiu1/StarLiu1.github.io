@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROC Analysis & Decision Threshold Explorer v020</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #F7F9FC; }
+    input[type="range"] { width: 100%; cursor: pointer; }
+    select, button { cursor: pointer; }
+    .header { background: #002D72; color: white; padding: 24px 40px; }
+    .header h1 { font-size: 28px; font-weight: 600; margin: 0; }
+    .header p { font-size: 14px; opacity: 0.9; margin-top: 8px; }
+    .container { max-width: 1600px; margin: 0 auto; padding: 32px 40px; }
+    .control-panel { background: white; padding: 24px 32px; border-radius: 12px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .control-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
+    .control-group label { display: block; font-size: 12px; font-weight: 600; color: #4A5568; text-transform: uppercase; margin-bottom: 6px; }
+    .control-group select { padding: 10px 14px; border-radius: 8px; border: 2px solid #E2E8F0; font-size: 14px; min-width: 200px; }
+    .panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .panel { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .panel h2 { margin: 0 0 16px; font-size: 18px; color: #1e293b; }
+    .panel h3 { font-size: 14px; font-weight: 600; color: #64748b; margin: 16px 0 8px; }
+    .slider-row { margin-bottom: 12px; }
+    .slider-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 500; color: #64748b; margin-bottom: 4px; }
+    .slider-value { font-weight: 600; }
+    .info-box { padding: 12px; background: #f8fafc; border-radius: 6px; font-size: 12px; color: #64748b; margin-top: 12px; }
+    .info-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .info-row:last-child { margin-bottom: 0; }
+    .auc-box { padding: 16px; background: #f8fafc; border-radius: 8px; margin-top: 16px; }
+    .auc-row { display: flex; justify-content: space-between; align-items: center; }
+    .auc-value { font-size: 24px; font-weight: 700; }
+    .metrics-box { padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 13px; margin-top: 12px; }
+    .lr-box { padding: 12px; background: #fef3e7; border-radius: 6px; font-size: 13px; margin-top: 12px; }
+    .confusion-matrix { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 1px; background: #e2e8f0; border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+    .cm-cell { padding: 8px; text-align: center; background: white; }
+    .cm-header { background: #f8fafc; font-size: 11px; font-weight: 600; color: #64748b; }
+    .cm-value { font-size: 18px; font-weight: 700; color: #1e293b; padding: 12px; }
+    .cm-label { font-size: 10px; font-weight: 400; color: #64748b; margin-top: 2px; }
+    .metric-bar { margin-bottom: 8px; }
+    .metric-bar-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+    .metric-bar-track { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+    .metric-bar-fill { height: 100%; transition: width 0.3s; }
+    .utility-result { padding: 12px; background: #fef3c7; border-radius: 6px; margin-top: 12px; }
+    .utility-value { font-size: 20px; font-weight: 700; color: #f59e0b; }
+    .reset-btn { padding: 10px 20px; background: white; color: #4A5568; border: 2px solid #E2E8F0; border-radius: 8px; font-size: 14px; font-weight: 600; }
+    .reset-btn:hover { border-color: #002D72; color: #002D72; }
+    .download-btn { padding: 10px 20px; background: #002D72; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; margin-left: 10px; }
+    .checkbox-label { display: flex; align-items: center; font-size: 14px; color: #4A5568; font-weight: 500; }
+    .checkbox-label input { margin-right: 8px; }
+    .scenario-info { margin-top: 20px; padding: 16px 20px; background: #F0F7FF; border-radius: 8px; font-size: 14px; border-left: 4px solid #68ACE5; }
+    .chart-container { height: 280px; position: relative; }
+    .legend-box { margin-top: 12px; padding: 10px; background: #f8fafc; border-radius: 6px; font-size: 11px; color: #64748b; }
+    .legend-item { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .legend-item:last-child { margin-bottom: 0; }
+    @media (max-width: 1200px) { .panels { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>ROC Analysis & Decision Threshold Explorer <span style="font-size:14px;font-weight:400;opacity:0.8">v020</span></h1>
+    <p>Interactive visualization for diagnostic test performance</p>
+  </div>
+  
+  <div class="container">
+    <div class="control-panel">
+      <div class="control-row">
+        <div class="control-group">
+          <label>Clinical Scenario</label>
+          <select id="scenario">
+            <option value="custom">Custom / Explore</option>
+            <option value="covid">COVID-19 Rapid Test</option>
+            <option value="psa">PSA Screening</option>
+            <option value="troponin">HS-Troponin for MI</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Sample Size</label>
+          <div style="display:flex;align-items:center;gap:12px">
+            <input type="range" id="sampleSize" min="100" max="5000" step="100" value="1000" style="width:140px">
+            <span id="sampleSizeVal" style="font-size:14px;color:#002D72;font-weight:600">1,000</span>
+          </div>
+        </div>
+        <button class="reset-btn" id="resetBtn">Reset</button>
+        <button class="download-btn" id="downloadBtn">Download v020</button>
+      </div>
+      <label class="checkbox-label">
+        <input type="checkbox" id="highIsPositive" checked>
+        High Value = Positive
+      </label>
+      <div class="scenario-info" id="scenarioInfo">
+        <div style="font-weight:600;color:#002D72">Custom / Explore</div>
+        <div style="color:#4A5568">Explore freely - adjust all parameters</div>
+      </div>
+    </div>
+    
+    <div class="panels">
+      <!-- Distribution Panel -->
+      <div class="panel">
+        <h2>Distribution Visualizer</h2>
+        <div class="chart-container"><canvas id="distChart"></canvas></div>
+        
+        <div class="slider-row" style="margin-top:16px">
+          <div class="slider-label"><span>Test Cutoff</span><span class="slider-value" id="thresholdVal" style="color:#f59e0b">4.50</span></div>
+          <input type="range" id="threshold" min="-10" max="20" step="0.1" value="4.5">
+        </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          <div class="slider-row">
+            <div class="slider-label"><span>Positive Mean</span><span class="slider-value" id="diseaseMeanVal" style="color:#dc2626">6.0</span></div>
+            <input type="range" id="diseaseMean" min="-10" max="30" step="0.5" value="6">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>Positive SD</span><span class="slider-value" id="diseaseSDVal" style="color:#dc2626">1.5</span></div>
+            <input type="range" id="diseaseSD" min="0.5" max="10" step="0.1" value="1.5">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>Negative Mean</span><span class="slider-value" id="healthyMeanVal" style="color:#2563eb">3.0</span></div>
+            <input type="range" id="healthyMean" min="-10" max="30" step="0.5" value="3">
+          </div>
+          <div class="slider-row">
+            <div class="slider-label"><span>Negative SD</span><span class="slider-value" id="healthySDVal" style="color:#2563eb">1.5</span></div>
+            <input type="range" id="healthySD" min="0.5" max="10" step="0.1" value="1.5">
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <div class="info-row"><span>True Positive:</span><span style="color:#dc2626;font-weight:600" id="tpVal">0</span></div>
+          <div class="info-row"><span>False Positive:</span><span style="color:#2563eb;font-weight:600" id="fpVal">0</span></div>
+          <div class="info-row"><span>True Negative:</span><span style="color:#2563eb;font-weight:600" id="tnVal">0</span></div>
+          <div class="info-row"><span>False Negative:</span><span style="color:#dc2626;font-weight:600" id="fnVal">0</span></div>
+        </div>
+      </div>
+      
+      <!-- ROC Panel -->
+      <div class="panel">
+        <h2>ROC Curve & Performance</h2>
+        <div class="chart-container"><canvas id="rocChart"></canvas></div>
+        
+        <div class="auc-box">
+          <div class="auc-row">
+            <span style="font-size:14px;font-weight:600;color:#1e293b">AUC</span>
+            <span class="auc-value" id="aucVal">0.000</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;text-align:right" id="aucText">Classifier</div>
+        </div>
+        
+        <div class="metrics-box">
+          <div class="info-row"><span>Sensitivity:</span><span style="font-weight:600;color:#2563eb" id="sensVal">0%</span></div>
+          <div class="info-row"><span>Specificity:</span><span style="font-weight:600;color:#2563eb" id="specVal">0%</span></div>
+          <div class="info-row"><span>FPR:</span><span style="font-weight:600;color:#dc2626" id="fprVal">0%</span></div>
+          <div class="info-row"><span>Youden's J:</span><span style="font-weight:600;color:#16a34a" id="youdenVal">0.000</span></div>
+        </div>
+        
+        <div class="lr-box">
+          <div style="font-weight:600;margin-bottom:6px;color:#1e293b">Likelihood Ratios</div>
+          <div class="info-row"><span>LR+:</span><span style="font-weight:600;color:#2563eb" id="lrPosVal">0</span></div>
+          <div class="info-row"><span>LR-:</span><span style="font-weight:600;color:#2563eb" id="lrNegVal">0</span></div>
+        </div>
+        
+        <div class="legend-box">
+          <div style="font-weight:600;margin-bottom:6px">ROC Markers</div>
+          <div class="legend-item"><span style="display:inline-block;width:12px;height:12px;background:#f59e0b;border-radius:50%;border:2px solid #000"></span><span>Current cutoff</span></div>
+          <div class="legend-item"><span style="display:inline-block;width:12px;height:12px;background:#9333ea;transform:rotate(45deg);border:2px solid #000"></span><span>Youden point</span></div>
+          <div class="legend-item"><span style="display:inline-block;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:12px solid #16a34a"></span><span>MFPA-optimal</span></div>
+        </div>
+      </div>
+      
+      <!-- Decision Analysis Panel -->
+      <div class="panel">
+        <h2>Decision Analysis</h2>
+        <h3 style="margin-top:0">Confusion Matrix</h3>
+        <div class="confusion-matrix">
+          <div class="cm-cell"></div>
+          <div class="cm-cell cm-header">Actual +</div>
+          <div class="cm-cell cm-header">Actual -</div>
+          <div class="cm-cell cm-header">Predicted +</div>
+          <div class="cm-cell cm-value" id="cmTP" style="background:rgba(220,38,38,0.1)">0<div class="cm-label">TP</div></div>
+          <div class="cm-cell cm-value" id="cmFP" style="background:rgba(37,99,235,0.1)">0<div class="cm-label">FP</div></div>
+          <div class="cm-cell cm-header">Predicted -</div>
+          <div class="cm-cell cm-value" id="cmFN" style="background:rgba(220,38,38,0.1)">0<div class="cm-label">FN</div></div>
+          <div class="cm-cell cm-value" id="cmTN" style="background:rgba(37,99,235,0.1)">0<div class="cm-label">TN</div></div>
+        </div>
+        
+        <h3>Performance Metrics</h3>
+        <div class="metric-bar">
+          <div class="metric-bar-label"><span style="color:#64748b">Accuracy</span><span style="font-weight:600" id="accVal">0%</span></div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" id="accBar" style="background:#2563eb;width:0%"></div></div>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-bar-label"><span style="color:#64748b">Precision (PPV)</span><span style="font-weight:600" id="precVal">0%</span></div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" id="precBar" style="background:#7c3aed;width:0%"></div></div>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-bar-label"><span style="color:#64748b">NPV</span><span style="font-weight:600" id="npvVal">0%</span></div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" id="npvBar" style="background:#0891b2;width:0%"></div></div>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-bar-label"><span style="color:#64748b">F1 Score</span><span style="font-weight:600" id="f1Val">0%</span></div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" id="f1Bar" style="background:#16a34a;width:0%"></div></div>
+        </div>
+        
+        <h3>Prevalence</h3>
+        <div class="slider-row">
+          <div class="slider-label"><span>Disease Prevalence</span><span class="slider-value" id="prevVal">10%</span></div>
+          <input type="range" id="prevalence" min="0.01" max="0.50" step="0.01" value="0.10">
+        </div>
+        
+        <h3>MFPA: Maximum False Positives Acceptable</h3>
+        <div style="background:linear-gradient(135deg,#fef9e7 0%,#fdebd0 100%);padding:15px;border-radius:10px;border:2px solid #f39c12;margin-bottom:12px">
+          <p style="font-size:13px;line-height:1.6;color:#2c3e50;margin:0 0 12px 0">
+            To avoid <strong style="color:#e74c3c">missing ONE person with the condition</strong> (FN), 
+            how many <strong style="color:#f39c12">people WITHOUT</strong> would you accept treating unnecessarily (FP)?
+          </p>
+          <div style="display:flex;align-items:center;gap:12px;justify-content:center">
+            <input type="number" id="mfpaValue" value="10" min="1" step="1" style="width:70px;padding:10px;font-size:20px;text-align:center;border:2px solid #3498db;border-radius:8px">
+            <span style="font-size:13px;color:#2c3e50">FPs per 1 FN avoided</span>
+          </div>
+        </div>
+        
+        <div class="slider-row">
+          <div class="slider-label"><span>MFPA</span><span class="slider-value" id="mfpaSliderVal">10</span></div>
+          <input type="range" id="mfpaSlider" min="1" max="50" step="1" value="10">
+        </div>
+        
+        <div id="mfpaVisual" style="background:white;padding:12px;border-radius:8px;border:1px solid #e2e8f0;margin:12px 0">
+          <div style="text-align:center;font-size:11px;color:#64748b;margin-bottom:8px">1 FN avoided (red) = FPs accepted (orange)</div>
+          <div id="mfpaBlocks" style="display:flex;justify-content:center;align-items:center;gap:4px;flex-wrap:wrap;min-height:40px"></div>
+        </div>
+        
+        <div id="mfpaInterpretation" style="padding:10px;background:#f8fafc;border-radius:6px;font-size:12px;text-align:center;margin-bottom:12px"></div>
+        
+        <div class="utility-result">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div style="font-size:11px;color:#64748b">MFPA-Optimal Cutoff</div>
+              <div class="utility-value" id="optimalCutoffVal">0.00</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:11px;color:#64748b">Youden Cutoff</div>
+              <div class="utility-value" id="youdenCutoffVal" style="color:#9333ea">0.00</div>
+            </div>
+          </div>
+          <div style="font-size:10px;color:#64748b;margin-top:8px;padding-top:8px;border-top:1px solid #e2e8f0">
+            At current cutoff: <span id="currentRatioVal">0</span> FPs per FN
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const SCENARIOS = {
+      custom: { name: "Custom / Explore", desc: "Explore freely - adjust all parameters", diseaseMean: 6, diseaseSD: 1.5, healthyMean: 3, healthySD: 1.5, threshold: 4.5, prevalence: 0.10, sampleSize: 1000, mfpa: 10, highIsPositive: true, guideline: "" },
+      covid: { name: "COVID-19 Rapid Test (ED)", desc: "Symptomatic patient in emergency setting", diseaseMean: 25, diseaseSD: 5, healthyMean: 40, healthySD: 3, threshold: 30, prevalence: 0.35, sampleSize: 1000, mfpa: 20, highIsPositive: false, guideline: "CDC: Ct < 30 indicates high viral load" },
+      psa: { name: "PSA Screening", desc: "Prostate cancer screening in asymptomatic men", diseaseMean: 8.5, diseaseSD: 3.0, healthyMean: 2.5, healthySD: 1.5, threshold: 4.0, prevalence: 0.08, sampleSize: 10000, mfpa: 5, highIsPositive: true, guideline: "USPSTF: Shared decision-making for PSA >4.0" },
+      troponin: { name: "HS-Troponin for MI", desc: "Rule-out MI in ED chest pain patients", diseaseMean: 100, diseaseSD: 50, healthyMean: 8, healthySD: 5, threshold: 20, prevalence: 0.15, sampleSize: 500, mfpa: 50, highIsPositive: true, guideline: "ESC: <5 ng/L + HEART score for rule-out" }
+    };
+
+    const normalPDF = (x, mean, sd) => (1 / (sd * Math.sqrt(2 * Math.PI))) * Math.exp(-Math.pow(x - mean, 2) / (2 * Math.pow(sd, 2)));
+    const normalCDF = (x, mean, sd) => { const z = (x - mean) / sd; const t = 1 / (1 + 0.2316419 * Math.abs(z)); const d = 0.3989423 * Math.exp(-z * z / 2); const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274)))); return z > 0 ? 1 - p : p; };
+
+    const el = id => document.getElementById(id);
+    let distChart, rocChart;
+    let state = { rocPoints: [], currentSens: 0, currentFPR: 0, youdenPt: null, mfpaOptPt: null };
+
+    function getInputs() {
+      return {
+        diseaseMean: parseFloat(el('diseaseMean').value),
+        diseaseSD: parseFloat(el('diseaseSD').value),
+        healthyMean: parseFloat(el('healthyMean').value),
+        healthySD: parseFloat(el('healthySD').value),
+        threshold: parseFloat(el('threshold').value),
+        prevalence: parseFloat(el('prevalence').value),
+        sampleSize: parseInt(el('sampleSize').value),
+        mfpa: parseInt(el('mfpaValue').value) || 10,
+        highIsPositive: el('highIsPositive').checked
+      };
+    }
+
+    function updateMFPADisplay() {
+      const mfpa = parseInt(el('mfpaValue').value) || 10;
+      el('mfpaSlider').value = Math.min(mfpa, 50);
+      el('mfpaSliderVal').textContent = mfpa;
+      
+      const blocksEl = el('mfpaBlocks');
+      let html = '<div style="width:24px;height:24px;background:#e74c3c;border-radius:4px" title="1 FN avoided"></div>';
+      html += '<span style="margin:0 8px;font-weight:600">=</span>';
+      
+      if (mfpa <= 20) {
+        for (let i = 0; i < mfpa; i++) {
+          html += '<div style="width:24px;height:24px;background:#f39c12;border-radius:4px;margin:2px" title="FP accepted"></div>';
+        }
+      } else {
+        const cols = Math.ceil(Math.sqrt(mfpa));
+        html += '<div style="display:grid;grid-template-columns:repeat(' + cols + ',8px);gap:2px">';
+        for (let i = 0; i < mfpa; i++) {
+          html += '<div style="width:8px;height:8px;background:#f39c12;border-radius:2px"></div>';
+        }
+        html += '</div>';
+      }
+      blocksEl.innerHTML = html;
+      
+      const interpEl = el('mfpaInterpretation');
+      let interp = '';
+      if (mfpa <= 1) interp = '<span style="color:#27ae60;font-weight:600">Very conservative:</span> Prioritizing specificity.';
+      else if (mfpa <= 5) interp = '<span style="color:#3498db;font-weight:600">Balanced:</span> Equal concern for FP and FN.';
+      else if (mfpa <= 10) interp = '<span style="color:#f39c12;font-weight:600">Sensitivity-leaning:</span> Accept several FPs to avoid missing cases.';
+      else if (mfpa <= 20) interp = '<span style="color:#e67e22;font-weight:600">Sensitivity-focused:</span> Missing a case is much worse.';
+      else interp = '<span style="color:#e74c3c;font-weight:600">Strongly sensitivity-focused:</span> Very high priority on not missing cases.';
+      interpEl.innerHTML = interp;
+      
+      calculate();
+    }
+
+    function calculate() {
+      const p = getInputs();
+      
+      el('thresholdVal').textContent = p.threshold.toFixed(2);
+      el('diseaseMeanVal').textContent = p.diseaseMean.toFixed(1);
+      el('diseaseSDVal').textContent = p.diseaseSD.toFixed(1);
+      el('healthyMeanVal').textContent = p.healthyMean.toFixed(1);
+      el('healthySDVal').textContent = p.healthySD.toFixed(1);
+      el('prevVal').textContent = (p.prevalence * 100).toFixed(0) + '%';
+      el('sampleSizeVal').textContent = p.sampleSize.toLocaleString();
+      
+      let sens, spec;
+      if (p.highIsPositive) {
+        sens = 1 - normalCDF(p.threshold, p.diseaseMean, p.diseaseSD);
+        spec = normalCDF(p.threshold, p.healthyMean, p.healthySD);
+      } else {
+        sens = normalCDF(p.threshold, p.diseaseMean, p.diseaseSD);
+        spec = 1 - normalCDF(p.threshold, p.healthyMean, p.healthySD);
+      }
+      
+      const diseased = Math.round(p.sampleSize * p.prevalence);
+      const healthy = p.sampleSize - diseased;
+      const TP = Math.round(diseased * sens);
+      const FN = diseased - TP;
+      const TN = Math.round(healthy * spec);
+      const FP = healthy - TN;
+      const total = TP + FP + TN + FN;
+      const fpr = 1 - spec;
+      
+      el('tpVal').textContent = TP;
+      el('fpVal').textContent = FP;
+      el('tnVal').textContent = TN;
+      el('fnVal').textContent = FN;
+      el('cmTP').innerHTML = TP + '<div class="cm-label">TP</div>';
+      el('cmFP').innerHTML = FP + '<div class="cm-label">FP</div>';
+      el('cmTN').innerHTML = TN + '<div class="cm-label">TN</div>';
+      el('cmFN').innerHTML = FN + '<div class="cm-label">FN</div>';
+      
+      const acc = (TP + TN) / total;
+      const prec = TP / (TP + FP) || 0;
+      const npv = TN / (TN + FN) || 0;
+      const f1 = 2 * (prec * sens) / (prec + sens) || 0;
+      const youden = sens + spec - 1;
+      const lrPos = spec < 1 ? sens / (1 - spec) : Infinity;
+      const lrNeg = spec > 0 ? (1 - sens) / spec : Infinity;
+      
+      el('sensVal').textContent = (sens * 100).toFixed(1) + '%';
+      el('specVal').textContent = (spec * 100).toFixed(1) + '%';
+      el('fprVal').textContent = (fpr * 100).toFixed(1) + '%';
+      el('youdenVal').textContent = youden.toFixed(3);
+      el('lrPosVal').textContent = lrPos === Infinity ? '∞' : lrPos.toFixed(2);
+      el('lrNegVal').textContent = lrNeg === Infinity ? '∞' : lrNeg.toFixed(2);
+      
+      el('accVal').textContent = (acc * 100).toFixed(1) + '%';
+      el('precVal').textContent = (prec * 100).toFixed(1) + '%';
+      el('npvVal').textContent = (npv * 100).toFixed(1) + '%';
+      el('f1Val').textContent = (f1 * 100).toFixed(1) + '%';
+      el('accBar').style.width = (acc * 100) + '%';
+      el('precBar').style.width = (prec * 100) + '%';
+      el('npvBar').style.width = (npv * 100) + '%';
+      el('f1Bar').style.width = (f1 * 100) + '%';
+      
+      const currentRatio = FN > 0 ? (FP / FN).toFixed(1) : '∞';
+      el('currentRatioVal').textContent = currentRatio;
+      
+      // Build ROC points
+      const rocPoints = [];
+      const minX = Math.min(p.healthyMean - 5 * p.healthySD, p.diseaseMean - 5 * p.diseaseSD);
+      const maxX = Math.max(p.healthyMean + 5 * p.healthySD, p.diseaseMean + 5 * p.diseaseSD);
+      for (let i = 0; i <= 100; i++) {
+        const t = minX + (i / 100) * (maxX - minX);
+        let tpr, fprPt;
+        if (p.highIsPositive) {
+          tpr = 1 - normalCDF(t, p.diseaseMean, p.diseaseSD);
+          fprPt = 1 - normalCDF(t, p.healthyMean, p.healthySD);
+        } else {
+          tpr = normalCDF(t, p.diseaseMean, p.diseaseSD);
+          fprPt = normalCDF(t, p.healthyMean, p.healthySD);
+        }
+        rocPoints.push({ t: t, fpr: fprPt, tpr: tpr });
+      }
+      rocPoints.sort((a, b) => a.fpr - b.fpr);
+      
+      // AUC
+      let auc = 0;
+      for (let i = 1; i < rocPoints.length; i++) {
+        auc += (rocPoints[i].fpr - rocPoints[i-1].fpr) * (rocPoints[i].tpr + rocPoints[i-1].tpr) / 2;
+      }
+      auc = Math.max(0, Math.min(1, auc));
+      
+      let aucColor = '#dc2626', aucText = 'Poor';
+      if (auc >= 0.9) { aucColor = '#16a34a'; aucText = 'Excellent'; }
+      else if (auc >= 0.8) { aucColor = '#65a30d'; aucText = 'Good'; }
+      else if (auc >= 0.7) { aucColor = '#f59e0b'; aucText = 'Fair'; }
+      
+      el('aucVal').textContent = auc.toFixed(3);
+      el('aucVal').style.color = aucColor;
+      el('aucText').textContent = aucText + ' classifier';
+      
+      // Find Youden point
+      let maxJ = -Infinity, youdenPt = rocPoints[0];
+      for (let i = 0; i < rocPoints.length; i++) {
+        const j = rocPoints[i].tpr - rocPoints[i].fpr;
+        if (j > maxJ) { maxJ = j; youdenPt = rocPoints[i]; }
+      }
+      el('youdenCutoffVal').textContent = youdenPt.t.toFixed(2);
+      
+      // Find MFPA-optimal: slope = (1-prev)/prev * 1/MFPA
+      const slope = ((1 - p.prevalence) / p.prevalence) * (1 / p.mfpa);
+      let maxVal = -Infinity, mfpaOptPt = rocPoints[0];
+      for (let i = 0; i < rocPoints.length; i++) {
+        const val = rocPoints[i].tpr - rocPoints[i].fpr * slope;
+        if (val > maxVal) { maxVal = val; mfpaOptPt = rocPoints[i]; }
+      }
+      el('optimalCutoffVal').textContent = mfpaOptPt.t.toFixed(2);
+      
+      // Store state for markers
+      state.rocPoints = rocPoints;
+      state.currentSens = sens;
+      state.currentFPR = fpr;
+      state.youdenPt = youdenPt;
+      state.mfpaOptPt = mfpaOptPt;
+      
+      updateCharts(p, rocPoints);
+    }
+
+    function updateCharts(p, rocPoints) {
+      // Distribution chart
+      const minX = Math.min(p.healthyMean - 4 * p.healthySD, p.diseaseMean - 4 * p.diseaseSD);
+      const maxX = Math.max(p.healthyMean + 4 * p.healthySD, p.diseaseMean + 4 * p.diseaseSD);
+      const labels = [], healthyData = [], diseaseData = [];
+      
+      for (let i = 0; i <= 100; i++) {
+        const x = minX + (i / 100) * (maxX - minX);
+        labels.push(x.toFixed(1));
+        healthyData.push(normalPDF(x, p.healthyMean, p.healthySD));
+        diseaseData.push(normalPDF(x, p.diseaseMean, p.diseaseSD));
+      }
+      
+      const threshIdx = Math.round(((p.threshold - minX) / (maxX - minX)) * 100);
+      
+      distChart.data.labels = labels;
+      distChart.data.datasets[0].data = healthyData;
+      distChart.data.datasets[1].data = diseaseData;
+      distChart.options.plugins.annotation = { annotations: { threshold: { type: 'line', xMin: threshIdx, xMax: threshIdx, borderColor: '#f59e0b', borderWidth: 2, borderDash: [5, 5] } } };
+      distChart.update();
+      
+      // ROC chart
+      const rocData = rocPoints.map(pt => ({ x: pt.fpr, y: pt.tpr }));
+      rocChart.data.datasets[0].data = rocData;
+      rocChart.update();
+    }
+
+    function updateSliderRange() {
+      const p = getInputs();
+      const minX = Math.min(p.healthyMean - 4 * p.healthySD, p.diseaseMean - 4 * p.diseaseSD);
+      const maxX = Math.max(p.healthyMean + 4 * p.healthySD, p.diseaseMean + 4 * p.diseaseSD);
+      el('threshold').min = minX;
+      el('threshold').max = maxX;
+    }
+
+    function loadScenario(key) {
+      const s = SCENARIOS[key];
+      el('diseaseMean').value = s.diseaseMean;
+      el('diseaseSD').value = s.diseaseSD;
+      el('healthyMean').value = s.healthyMean;
+      el('healthySD').value = s.healthySD;
+      el('threshold').value = s.threshold;
+      el('prevalence').value = s.prevalence;
+      el('sampleSize').value = s.sampleSize;
+      el('mfpaValue').value = s.mfpa;
+      el('mfpaSlider').value = Math.min(s.mfpa, 50);
+      el('highIsPositive').checked = s.highIsPositive;
+      
+      el('scenarioInfo').innerHTML = '<div style="font-weight:600;color:#002D72">' + s.name + '</div><div style="color:#4A5568">' + s.desc + '</div>' + (s.guideline ? '<div style="font-size:13px;color:#4A5568;font-style:italic;margin-top:4px">📋 ' + s.guideline + '</div>' : '');
+      
+      updateSliderRange();
+      updateMFPADisplay();
+    }
+
+    // Custom plugin to draw ROC markers
+    const rocMarkerPlugin = {
+      id: 'rocMarkers',
+      afterDatasetsDraw: function(chart) {
+        if (!state.youdenPt || !state.mfpaOptPt) return;
+        const ctx = chart.ctx;
+        const xScale = chart.scales.x;
+        const yScale = chart.scales.y;
+        
+        // Youden point - purple diamond
+        const ypx = xScale.getPixelForValue(state.youdenPt.fpr);
+        const ypy = yScale.getPixelForValue(state.youdenPt.tpr);
+        ctx.save();
+        ctx.translate(ypx, ypy);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillStyle = '#9333ea';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.fillRect(-7, -7, 14, 14);
+        ctx.strokeRect(-7, -7, 14, 14);
+        ctx.restore();
+        
+        // MFPA optimal - green triangle
+        const mpx = xScale.getPixelForValue(state.mfpaOptPt.fpr);
+        const mpy = yScale.getPixelForValue(state.mfpaOptPt.tpr);
+        ctx.save();
+        ctx.fillStyle = '#16a34a';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(mpx, mpy - 10);
+        ctx.lineTo(mpx - 9, mpy + 7);
+        ctx.lineTo(mpx + 9, mpy + 7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+        
+        // Current point - orange circle (on top)
+        const cpx = xScale.getPixelForValue(state.currentFPR);
+        const cpy = yScale.getPixelForValue(state.currentSens);
+        ctx.save();
+        ctx.fillStyle = '#f59e0b';
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(cpx, cpy, 9, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      }
+    };
+
+    // Threshold line plugin for distribution chart
+    const thresholdPlugin = {
+      id: 'thresholdLine',
+      afterDatasetsDraw: function(chart) {
+        const p = getInputs();
+        const xScale = chart.scales.x;
+        const yScale = chart.scales.y;
+        const minX = Math.min(p.healthyMean - 4 * p.healthySD, p.diseaseMean - 4 * p.diseaseSD);
+        const maxX = Math.max(p.healthyMean + 4 * p.healthySD, p.diseaseMean + 4 * p.diseaseSD);
+        const threshIdx = ((p.threshold - minX) / (maxX - minX)) * 100;
+        
+        const px = xScale.getPixelForValue(threshIdx);
+        const ctx = chart.ctx;
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([5, 5]);
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 2;
+        ctx.moveTo(px, yScale.top);
+        ctx.lineTo(px, yScale.bottom);
+        ctx.stroke();
+        ctx.restore();
+      }
+    };
+
+    function initCharts() {
+      const distCtx = el('distChart').getContext('2d');
+      distChart = new Chart(distCtx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            { label: 'Negative', data: [], borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, tension: 0.4, pointRadius: 0 },
+            { label: 'Positive', data: [], borderColor: '#dc2626', backgroundColor: 'rgba(220,38,38,0.1)', fill: true, tension: 0.4, pointRadius: 0 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          interaction: { intersect: false, mode: 'index' },
+          plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 8, font: { size: 11 } } } },
+          scales: { x: { ticks: { maxTicksLimit: 8, font: { size: 10 } } }, y: { ticks: { font: { size: 10 } } } }
+        },
+        plugins: [thresholdPlugin]
+      });
+      
+      const rocCtx = el('rocChart').getContext('2d');
+      rocChart = new Chart(rocCtx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            { label: 'ROC', data: [], borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, showLine: true, tension: 0.1, pointRadius: 0 },
+            { label: 'Random', data: [{ x: 0, y: 0 }, { x: 1, y: 1 }], borderColor: '#94a3b8', borderDash: [5, 5], showLine: true, pointRadius: 0 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { min: 0, max: 1, title: { display: true, text: 'False Positive Rate', font: { size: 11 } }, ticks: { font: { size: 10 } } },
+            y: { min: 0, max: 1, title: { display: true, text: 'Sensitivity', font: { size: 11 } }, ticks: { font: { size: 10 } } }
+          },
+          onClick: function(e) {
+            const x = rocChart.scales.x.getValueForPixel(e.native.offsetX);
+            if (state.rocPoints.length > 0) {
+              let closest = state.rocPoints[0], minDist = Infinity;
+              state.rocPoints.forEach(pt => { const d = Math.abs(pt.fpr - x); if (d < minDist) { minDist = d; closest = pt; } });
+              el('threshold').value = closest.t;
+              calculate();
+            }
+          }
+        },
+        plugins: [rocMarkerPlugin]
+      });
+    }
+
+    // Event listeners
+    document.querySelectorAll('input[type="range"], input[type="checkbox"]').forEach(input => {
+      input.addEventListener('input', function() {
+        if (['diseaseMean', 'diseaseSD', 'healthyMean', 'healthySD'].includes(this.id)) updateSliderRange();
+        if (this.id === 'mfpaSlider') { el('mfpaValue').value = this.value; updateMFPADisplay(); }
+        else calculate();
+      });
+    });
+    
+    el('mfpaValue').addEventListener('input', updateMFPADisplay);
+    el('scenario').addEventListener('change', function() { loadScenario(this.value); });
+    el('resetBtn').addEventListener('click', function() { loadScenario(el('scenario').value); });
+    el('downloadBtn').addEventListener('click', function() {
+      const html = document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'roc_standalone_v020.html';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Initialize
+    initCharts();
+    updateMFPADisplay();
+  </script>
+</body>
+</html>
