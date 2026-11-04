@@ -1,0 +1,225 @@
+{
+  "version": "045",
+  "modelName": "AMIA Workshop PE Demo",
+  "exportDate": "2026-11-04T18:50:04.263Z",
+  "title": "Decision Tree Analysis Suite",
+  "state": {
+    "skillLevel": "novice",
+    "modelName": "AMIA Workshop PE Demo",
+    "modelDate": "2026-11-04",
+    "modelAuthor": "",
+    "overallDescription": "Kassirer Pauker example: Pulmonary embolism after surviving arteriogram",
+    "perspectiveMode": "single",
+    "selectedPerspectives": [
+      "clinician"
+    ],
+    "perspectiveRows": [
+      {
+        "perspective": "clinician",
+        "values": {}
+      }
+    ],
+    "who": "An adult woman with suspected pulmonary emboli",
+    "hasTest": true,
+    "testPosition": "test_first",
+    "testName": "arteriogram",
+    "isCEA": false,
+    "wtpThreshold": 50000,
+    "treeMode": "simple",
+    "customTree": {
+      "nodes": [],
+      "edges": [],
+      "rootId": null
+    },
+    "selectedOutcomes": [
+      "utility"
+    ],
+    "selectedCostSubTypes": [],
+    "intermediateOutcomes": [
+      {
+        "id": "int_1",
+        "name": "PE",
+        "states": [
+          "PE",
+          "No PE"
+        ]
+      }
+    ],
+    "showIntermediateOutcome": false,
+    "showThreshold": true,
+    "analysisUpdated": true,
+    "options": [
+      "Anticoagulate",
+      "Don't Anticoagulate"
+    ],
+    "parameters": {
+      "p_disease": {
+        "estimate": 0.7,
+        "hasRange": true,
+        "min": "0.01",
+        "max": "1",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Pre-test probability of PE"
+      },
+      "test_sens": {
+        "estimate": 0.2,
+        "hasRange": true,
+        "min": "0.70",
+        "max": "0.99",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Sensitivity of the diagnostic test"
+      },
+      "test_spec": {
+        "estimate": 0.99,
+        "hasRange": true,
+        "min": "0.65",
+        "max": "0.95",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Specificity of the diagnostic test"
+      },
+      "u_test": {
+        "estimate": 0,
+        "hasRange": true,
+        "min": "0.00",
+        "max": "0.1",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Dysutility of the diagnostic test"
+      },
+      "v_bad_0": {
+        "estimate": 0.27,
+        "hasRange": true,
+        "min": "0",
+        "max": "1.00",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Utility when the disease is present and treatment is given"
+      },
+      "v_good_0": {
+        "estimate": 0.42,
+        "hasRange": true,
+        "min": "0",
+        "max": "1.00",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Utility when the disease is absent but treatment is given anyway (treatment harm only)"
+      },
+      "v_bad_1": {
+        "estimate": 0.15,
+        "hasRange": true,
+        "min": "0.00",
+        "max": "1",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Utility when the disease is present and no treatment is given (worst outcome)"
+      },
+      "v_good_1": {
+        "estimate": 1,
+        "hasRange": true,
+        "min": "0.80",
+        "max": "1.00",
+        "distribution": "fixed",
+        "distParams": {},
+        "isFormula": false,
+        "formula": "",
+        "citation": "Utility when the disease is absent and no treatment is given (best outcome)"
+      }
+    },
+    "customParams": {},
+    "customParamCounter": 0,
+    "evaluatedParams": {
+      "p_disease": 0.7,
+      "test_sens": 0.2,
+      "test_spec": 0.99,
+      "u_test": 0,
+      "v_bad_0": 0.27,
+      "v_good_0": 0.42,
+      "v_bad_1": 0.15,
+      "v_good_1": 1
+    },
+    "paramOrder": [
+      "p_disease",
+      "test_sens",
+      "test_spec",
+      "u_test",
+      "v_bad_0",
+      "v_good_0",
+      "v_bad_1",
+      "v_good_1"
+    ],
+    "psaSettings": {
+      "iterations": 1000,
+      "seed": null
+    },
+    "psaResults": null,
+    "results": {
+      "Anticoagulate": {
+        "ev": 0.315,
+        "pGood": 0.30000000000000004,
+        "vBad": 0.27,
+        "vGood": 0.42,
+        "expectedCost": 0,
+        "costTx": 0,
+        "costGood": 0,
+        "costBad": 0
+      },
+      "Don't Anticoagulate": {
+        "ev": 0.405,
+        "pGood": 0.30000000000000004,
+        "vBad": 0.15,
+        "vGood": 1,
+        "expectedCost": 0,
+        "costTx": 0,
+        "costGood": 0,
+        "costBad": 0
+      },
+      "arteriogram": {
+        "ev": 0.42006000000000004,
+        "pGood": null,
+        "expectedCost": 0,
+        "isTest": true
+      },
+      "bestEV": 0.42006000000000004,
+      "bestOption": "arteriogram"
+    },
+    "outcomeTradeoffs": "",
+    "perspectiveTradeoffs": {},
+    "rowComments": {
+      "perspective": "",
+      "structure": "",
+      "who": "<Enter comment here>",
+      "outcomes": "",
+      "uncertainties": "",
+      "options": "",
+      "valuations": "",
+      "time": ""
+    },
+    "analysisComments": {
+      "tree": "",
+      "rollback": "",
+      "summary": "",
+      "tornado": "",
+      "cea": "",
+      "psa": ""
+    },
+    "tornadoZoomOut": false,
+    "importedUtilities": null
+  }
+}
